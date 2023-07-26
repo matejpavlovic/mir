@@ -1,0 +1,47 @@
+"product":
+  - single:
+      name: "TxGen.ClientID"
+      value: ""
+  - single:
+      name: "Trantor.Iss.MaxProposeDelay"
+      value: "0"
+  - single:
+      name: "Trantor.Mempool.MaxPayloadInBatch"
+      value: "16777216" # 16 MB
+  #      value: "262144" # 256 kiB
+  - single:
+      name: "Duration"
+      value: "120000000000"
+  - single:
+      name: "Trantor.Net.ConnectionBufferSize"
+      value: "128"
+  - single:
+      name: "Trantor.Iss.PBFTViewChangeSNTimeout"
+      value: "16000000000"
+  - single:
+      name: "Trantor.Iss.PBFTViewChangeSegmentTimeout"
+      value: "48000000000"
+  - enum:
+      name: "Trantor.Iss.SegmentLength"
+      values: ["1", "2", "8"]
+  - union:
+      - product:
+          - enum:
+              name: "Trantor.Mempool.BatchTimeout"
+              values: ["100000000", "200000000"]
+          - enum:
+              name: "TxGen.Tps"
+              values: ["1", "4"]
+          - enum:
+              name: "Trantor.Mempool.MaxTransactionsInBatch"
+              values: ["1", "16"]
+      - product:
+          - enum:
+              name: "Trantor.Mempool.BatchTimeout"
+              values: ["100000000", "200000000", "500000000"]
+          - enum:
+              name: "TxGen.Tps"
+              values: ["128", "256", "512", "1024", "2048"]
+          - enum:
+              name: "Trantor.Mempool.MaxTransactionsInBatch"
+              values: ["64", "128", "256", "512", "1024"]

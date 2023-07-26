@@ -158,6 +158,11 @@ func (chat *ChatApp) NewEpoch(_ tt.EpochNr) (*trantorpbtypes.Membership, error) 
 // In our case, it only serializes the chat message history.
 func (chat *ChatApp) Snapshot() ([]byte, error) {
 	data := make([]byte, 0)
+
+	// Append dummy byte so there is always some data, even without messages.
+	// TODO: Get rid of this when zero-length snapshots are supported.
+	data = append(data, 0)
+
 	for _, msg := range chat.messages {
 		data = append(data, []byte(msg)...) // message data
 		data = append(data, 0)              // zero byte as separator
@@ -171,8 +176,10 @@ func (chat *ChatApp) Snapshot() ([]byte, error) {
 // After the chat history is restored, RestoreState prints the whole chat history to stdout.
 func (chat *ChatApp) RestoreState(checkpoint *checkpoint.StableCheckpoint) error {
 
-	// Restore chat messages
-	chat.restoreChat(checkpoint.Snapshot.AppData)
+	// Restore chat messages.
+	// Remove dummy byte added by the Snapshot method. This is only to always have a snapshot with non-zero length.
+	// TODO: Get rid of this when zero-length snapshots are supported.
+	chat.restoreChat(checkpoint.Snapshot.AppData[1:])
 
 	// Restore configuration
 	if err := chat.restoreConfiguration(checkpoint.Snapshot.EpochData.EpochConfig); err != nil {

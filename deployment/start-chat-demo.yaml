@@ -8,7 +8,7 @@
   tasks:
     - name: "Create membership file"
       ansible.builtin.script:
-        cmd: scripts/create-membership.sh '{{ ansible_play_hosts_all }}'
+        cmd: scripts/assemble-params.sh '{{ ansible_play_hosts_all }}'
     - name: "Start chat node"
       ansible.builtin.script:
         cmd: scripts/start-chat-demo.sh "{{ lookup('ansible.utils.index_of', ansible_play_hosts_all, 'eq', ansible_host) }}"

@@ -13,10 +13,11 @@ const (
 
 type Params struct {
 	ProtocolID           protocol.ID
-	ConnectionTTL        time.Duration
-	ConnectionBufferSize int
-	StreamWriteTimeout   time.Duration
-	ReconnectionPeriod   time.Duration
+	ConnectionTTL        time.Duration `json:",string"`
+	ConnectionBufferSize int           `json:",string"`
+	StreamWriteTimeout   time.Duration `json:",string"`
+	ReconnectionPeriod   time.Duration `json:",string"`
+	MinComplainPeriod    time.Duration `json:",string"`
 }
 
 func DefaultParams() Params {
@@ -26,5 +27,6 @@ func DefaultParams() Params {
 		ConnectionBufferSize: 128,
 		StreamWriteTimeout:   100 * time.Millisecond,
 		ReconnectionPeriod:   time.Second,
+		MinComplainPeriod:    time.Second,
 	}
 }

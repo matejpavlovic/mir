@@ -80,6 +80,14 @@ func NewModule(mc ModuleConfig) modules.Module {
 			state.batchesByRetIdx[retIdx][batchID] = struct{}{}
 		}
 
+		//if tx, ok := maputil.AnyVal(state.TransactionStore); ok {
+		//	txData, err := proto.Marshal(tx.Pb())
+		//	if err != nil {
+		//		return es.Errorf("failed marshalling transaction")
+		//	}
+		//	fmt.Printf("Transaction store: %d x %d = %d bytes\n", len(txData), len(state.TransactionStore), len(txData) * len(state.TransactionStore))
+		//}
+
 		// Note that we emit a BatchStored event even if the batch's retention index was too low
 		// (and thus the batch was not actually stored).
 		// However, since this situation is indistinguishable from
