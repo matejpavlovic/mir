@@ -1,0 +1,21 @@
+product:
+  - single:
+      name: "TxGen.ClientID"
+      value: ""
+  - single:
+      name: "Trantor.Iss.MaxProposeDelay"
+      value: "0"
+  - union:
+      - product:
+          - single:
+              name: "Duration"
+              value: "10000000000"
+          - enum:
+              name: "TxGen.Tps"
+              values: ["1", "10"]
+          - single:
+              name: "Trantor.Mempool.MaxTransactionsInBatch"
+              value: "1"
+      - single:
+          name: "Duration"
+          value: "30000000000"

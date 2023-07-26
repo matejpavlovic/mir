@@ -1,0 +1,67 @@
+---
+- name: Run Mir benchmark nodes (experiment ID {{ exp_id }})
+  hosts: all
+  gather_facts: False
+  become: False
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_user }}/mir/bin:"
+  tasks:
+    - name: Execute kill script
+      ansible.builtin.script:
+        cmd: scripts/kill.sh
+      ignore_errors: True
+#    - name: Assemble membership and configuration file
+#      run_once: True
+#      delegate_to: localhost
+#      script: ./scripts/assemble-params.sh "{{ ansible_play_hosts_all }}"
+    - name: Delete potential leftover files from previous runs
+      file:
+        path: "/home/{{ ansible_user }}/{{ item }}"
+        state: absent
+      with_items:
+        - "{{ ready_sync_file }}"
+        - "{{ deliver_sync_file }}"
+        - "{{ node_output_file }}"
+        - "{{ node_config_file | basename }}"
+    - name: Upload configuration file ({{ node_config_file }})
+      copy:
+        src: "{{ node_config_file }}"
+        dest: "/home/{{ ansible_user }}/"
+    - name: Start benchmark node
+      script:
+        cmd: scripts/start-benchmark.sh
+          "{{ lookup('ansible.utils.index_of', ansible_play_hosts_all, 'eq', ansible_host) }}"
+          "{{ node_config_file | basename }}"
+          "{{ ready_sync_file }}"
+          "{{ deliver_sync_file }}"
+          "{{ node_output_file }}"
+    - name: Wait for node to get ready (connect) ({{ ready_sync_file }})
+      wait_for:
+        path: "/home/{{ ansible_user }}/{{ ready_sync_file }}"
+        timeout: "{{ sync_wait_timeout }}"
+    - name: Launch benchmark ({{ ready_sync_file }})
+      file:
+        path: "/home/{{ ansible_user }}/{{ ready_sync_file }}"
+        state: absent
+    - name: Wait for nodes to finish delivering all transactions ({{ deliver_sync_file }})
+      wait_for:
+        path: "/home/{{ ansible_user }}/{{ deliver_sync_file }}"
+        timeout: "{{ sync_wait_timeout }}"
+    - name: Let nodes shut down ({{ deliver_sync_file }})
+      file:
+        path: "/home/{{ ansible_user }}/{{ deliver_sync_file }}"
+        state: absent
+    - name: Wait for benchmark output file ({{ node_output_file }})
+      wait_for:
+        path: "/home/{{ ansible_user }}/{{ node_output_file }}"
+        # Default timeout used here
+    - name: Download benchmark output file
+      fetch:
+        flat: True
+        src: "/home/{{ ansible_user }}/{{ node_output_file }}"
+        dest: "{{ output_dir }}/data/{{ inventory_hostname }}-{{ node_output_file }}"
+#    - name: Aggregate output data ({{ output_dir }}/{{exp_id}}/{{ bench_result_file }})
+#      run_once: True
+#      delegate_to: localhost
+#      shell: python3 scripts/analyze-bench-output.py "{{ exp_id }}" {{ output_dir }}/{{ exp_id }}/{{ bench_result_file }} {{ output_dir }}/{{ exp_id }}/*{{ node_output_file }}
+...

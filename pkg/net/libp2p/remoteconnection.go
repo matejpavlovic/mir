@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"sync"
 	"time"
 
@@ -30,6 +31,9 @@ type remoteConnection struct {
 	stop          chan struct{}
 	done          chan struct{}
 	connectedCond *sync.Cond
+
+	// DEBUG
+	maxMsgSize int
 }
 
 func newRemoteConnection(
@@ -73,7 +77,7 @@ func (conn *remoteConnection) Send(msg *messagepb.Message) error {
 	case conn.msgBuffer <- msg:
 		return nil
 	default:
-		return es.Errorf("send buffer full")
+		return es.Errorf("send buffer full (" + conn.addrInfo.String() + ")")
 	}
 }
 
@@ -264,6 +268,13 @@ func (conn *remoteConnection) process() {
 					conn.logger.Log(logging.LevelError, "Could not encode message. Disconnecting.", "err", err)
 					return
 				}
+
+				//if len(msgData) > conn.maxMsgSize {
+				//	conn.maxMsgSize = len(msgData)
+				//	if len(msgData) > 500 {
+				//		fmt.Printf("BIG MESSAGE (%d):\n%s\n", len(msgData), protojson.Format(msg)[0:500])
+				//	}
+				//}
 			}
 		}
 
@@ -313,6 +324,7 @@ func (conn *remoteConnection) writeDataToStream(data []byte) error {
 			case <-conn.stop:
 				return es.Errorf("connection closing")
 			default:
+				fmt.Printf("Only %d bytes written out of %d\n", bytesWritten, len(data))
 				data = data[bytesWritten:]
 			}
 

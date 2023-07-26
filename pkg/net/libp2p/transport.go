@@ -67,6 +67,7 @@ func (tr *Transport) ApplyEvents(_ context.Context, eventList *events.EventList)
 			switch e := transportpbtypes.EventFromPb(e.Transport).Type.(type) {
 			case *transportpbtypes.Event_SendMessage:
 				for _, destID := range e.SendMessage.Destinations {
+
 					if err := tr.Send(destID, e.SendMessage.Msg.Pb()); err != nil {
 						tr.logger.Log(logging.LevelWarn, "Failed to send a message", "dest", destID, "err", err)
 					}

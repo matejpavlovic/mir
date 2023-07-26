@@ -1,0 +1,30 @@
+"product":
+    - single:
+        name: "Trantor.Mempool.MaxPayloadInBatch"
+        value: "2048"
+    - enum:
+        name: "Trantor.Iss.SegmentLength"
+        values: ["2", "4", "8"]
+    - union:
+        - product:
+            - enum:
+                name: "Trantor.Mempool.MaxTransactionsInBatch"
+                values: ["1024", "4096"]
+            - enum:
+                name: "TxGen.Tps"
+                values: ["1024", "2048", "4096", "8192"]
+            - range:
+                name: "Trantor.Mempool.BatchTimeout"
+                min: 100000000
+                step: 100000000
+                max: 200000000
+        - product:
+            - single:
+                name: "Trantor.Mempool.MaxTransactionsInBatch"
+                value: "1"
+            - enum:
+                name: "TxGen.Tps"
+                values: ["1", "10", "100"]
+            - enum:
+                name: "Trantor.Mempool.BatchTimeout"
+                values: ["1000000000"]
