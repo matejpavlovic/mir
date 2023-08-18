@@ -301,13 +301,23 @@ func (conn *remoteConnection) process() {
 // It blocks until all data is written, the connection closes, or an error occurs.
 // In the first case, writeDataToStream returns nil. Otherwise, it returns the corresponding error.
 // The statsLabel denotes the label under which to record this write in the statistics, if applicable.
-func (conn *remoteConnection) writeDataToStream(data []byte, statsLabel string) error {
+func (conn *remoteConnection) writeDataToStream(buffer []byte, statsLabel string) error {
+
+	var data []byte
+	sent := 0
 
 	// Retry sending data until:
 	// - all data is sent, or
 	// - the connection closes, or
 	// - an error occurs.
 	for {
+
+		if len(buffer)-sent > 100000 {
+			data = buffer[sent : sent+100000]
+		} else {
+			data = buffer[sent:]
+		}
+		start := time.Now()
 
 		// Set a timeout for the data to be written, so the conn.stream.Write call does not block forever.
 		// This is required so that we can periodically check the conn.stop channel.
@@ -323,10 +333,22 @@ func (conn *remoteConnection) writeDataToStream(data []byte, statsLabel string) 
 			conn.stats.Sent(bytesWritten, statsLabel)
 		}
 
+		if bytesWritten > 0 {
+			sent += bytesWritten
+			elapsed := time.Since(start)
+			totalDelay := time.Duration(uint64(time.Second) * uint64(bytesWritten) / 100000.0)
+			if totalDelay > elapsed {
+				time.Sleep(totalDelay - elapsed)
+			}
+		}
+
+		// Handle returned error.
 		if err == nil {
 			// If all data was successfully written, return.
 
-			return nil
+			if sent == len(buffer) {
+				return nil
+			}
 
 		} else if errors.Is(err, yamux.ErrTimeout) {
 			// If a timeout occurred, check if the connection has not been closed in the meantime.
