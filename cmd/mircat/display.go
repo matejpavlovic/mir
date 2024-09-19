@@ -69,7 +69,7 @@ func displayEvents(args *arguments) error { //nolint:gocognit
 			}
 			// getting events from entry
 			for _, event := range entry.Events {
-				metadata.index = uint64(index)
+				metadata.index = uint64(index) //nolint:gosec // disable G115
 
 				_, validEvent := args.selectedEventNames[eventName(event)]
 				_, validDest := args.selectedEventDests[event.DestModule]

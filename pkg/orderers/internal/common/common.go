@@ -151,7 +151,7 @@ func (state *State) InitView(
 		pbftpbevents.ViewChangeSNTimeout(
 			moduleConfig.Self,
 			view,
-			uint64(state.NumCommitted(view))).Pb(),
+			uint64(state.NumCommitted(view))).Pb(), //nolint:gosec // disable G115
 	)
 	stddsl.TimerDelay(
 		m,

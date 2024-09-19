@@ -2,6 +2,7 @@ package viewchange
 
 import (
 	"bytes"
+	"math"
 
 	es "github.com/go-errors/errors"
 	"google.golang.org/protobuf/proto"
@@ -351,6 +352,10 @@ func applyViewChangeSNTimeout(
 	numCommitted uint64,
 	logger logging.Logger,
 ) error {
+
+	if numCommitted > math.MaxInt {
+		return es.Errorf("numCommitted (%d) exceeds integer range (%d)", numCommitted, math.MaxInt)
+	}
 
 	// If the view is still the same as when the timer was set up,
 	// if nothing has been committed since then, and if the segment-level checkpoint is not yet stable

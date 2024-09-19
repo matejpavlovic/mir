@@ -44,7 +44,7 @@ func (seg *Segment) NodeIDs() []t.NodeID {
 }
 
 func (seg *Segment) PrimaryNode(view types.ViewNr) t.NodeID {
-	return seg.NodeIDs()[(seg.LeaderIndex()+int(view))%len(seg.NodeIDs())]
+	return seg.NodeIDs()[(seg.LeaderIndex()+int(view))%len(seg.NodeIDs())] //nolint:gosec // disable G115
 }
 
 func (seg *Segment) LeaderIndex() int {

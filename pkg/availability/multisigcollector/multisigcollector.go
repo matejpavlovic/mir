@@ -74,7 +74,7 @@ func NewReconfigurableModule(mc ModuleConfig, paramsTemplate ModuleParams, logge
 				moduleParams.InstanceUID = []byte(mscID)
 				moduleParams.EpochNr = mscParams.Epoch
 				moduleParams.Membership = mscParams.Membership
-				moduleParams.MaxRequests = int(mscParams.MaxRequests)
+				moduleParams.MaxRequests = int(mscParams.MaxRequests) //nolint:gosec // disable G115
 				// TODO: Use InstanceUIDs properly.
 				//       (E.g., concatenate this with the instantiating protocol's InstanceUID when introduced.)
 
