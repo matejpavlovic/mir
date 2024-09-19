@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/filecoin-project/mir/pkg/externalmodule"
 	"github.com/filecoin-project/mir/stdevents"
 	"github.com/filecoin-project/mir/stdtypes"
-	"time"
 )
 
 func main() {

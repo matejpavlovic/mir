@@ -2,6 +2,7 @@ package externalmodule
 
 import (
 	"context"
+
 	"github.com/filecoin-project/mir/pkg/dsl"
 	"github.com/filecoin-project/mir/pkg/modules"
 	"github.com/filecoin-project/mir/stdevents"

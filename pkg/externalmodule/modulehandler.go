@@ -3,17 +3,19 @@ package externalmodule
 import (
 	"context"
 	"fmt"
+	"net/http"
+	"sync/atomic"
+
 	"github.com/coder/websocket"
+
 	"github.com/filecoin-project/mir/pkg/modules"
 	"github.com/filecoin-project/mir/stdevents"
 	"github.com/filecoin-project/mir/stdtypes"
-	"net/http"
-	"sync/atomic"
 )
 
 const (
-	CONN_ACTIVE = iota
-	CONN_PENDING
+	ConnActive = iota
+	ConnPending
 )
 
 type ModuleHandler struct {
@@ -29,13 +31,13 @@ func NewHandler(path string, module modules.PassiveModule) *ModuleHandler {
 	return &ModuleHandler{
 		path:             path,
 		module:           module,
-		connectionStatus: CONN_PENDING,
+		connectionStatus: ConnPending,
 	}
 }
 
 func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *http.Request) {
 
-	if !atomic.CompareAndSwapInt32(&mh.connectionStatus, CONN_PENDING, CONN_ACTIVE) {
+	if !atomic.CompareAndSwapInt32(&mh.connectionStatus, ConnPending, ConnActive) {
 		writer.WriteHeader(http.StatusForbidden)
 		return
 	}
@@ -64,9 +66,12 @@ func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *h
 			break
 		}
 
-		if command.MsgType == MSG_EVENTS {
+		if command.MsgType == MsgEvents {
 			err = mh.processEvents(ctx, conn, command.NumEvents)
-		} else if command.MsgType == MSG_CLOSE {
+			if err != nil {
+				break
+			}
+		} else if command.MsgType == MsgClose {
 			break
 		} else {
 			err = fmt.Errorf("unknown control msg type: %v", command.MsgType)

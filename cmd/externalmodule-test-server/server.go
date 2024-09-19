@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/filecoin-project/mir/pkg/externalmodule"
 	"github.com/filecoin-project/mir/stdevents"
 	"github.com/filecoin-project/mir/stdtypes"
-	"time"
 )
 
 type EmptyModule struct {

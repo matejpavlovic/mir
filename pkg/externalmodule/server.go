@@ -3,6 +3,7 @@ package externalmodule
 import (
 	"net"
 	"net/http"
+	"time"
 )
 
 type Server struct {
@@ -27,7 +28,8 @@ func (ms *Server) Serve(addrPort string) error {
 	}
 
 	ms.httpServer = &http.Server{
-		Handler: ms,
+		ReadHeaderTimeout: 2 * time.Second,
+		Handler:           ms,
 	}
 
 	return ms.httpServer.Serve(l)

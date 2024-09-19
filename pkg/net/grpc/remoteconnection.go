@@ -76,7 +76,7 @@ func (conn *remoteConnection) Send(msg *GrpcMessage) error {
 	case conn.msgBuffer <- msg:
 		return nil
 	default:
-		return es.Errorf("send buffer full (" + conn.addr + ")")
+		return es.Errorf("send buffer full (%s)", conn.addr)
 	}
 }
 

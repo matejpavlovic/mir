@@ -5,8 +5,8 @@ import "encoding/json"
 type controlMessageType int
 
 const (
-	MSG_EVENTS = iota
-	MSG_CLOSE
+	MsgEvents = iota
+	MsgClose
 )
 
 type ControlMessage struct {
@@ -32,9 +32,9 @@ func controlMessageFromBytes(data []byte) (*ControlMessage, error) {
 }
 
 func controlMessageEvents(numEvents int) *ControlMessage {
-	return &ControlMessage{MSG_EVENTS, numEvents}
+	return &ControlMessage{MsgEvents, numEvents}
 }
 
 func controlMessageClose() *ControlMessage {
-	return &ControlMessage{MSG_CLOSE, 0}
+	return &ControlMessage{MsgClose, 0}
 }

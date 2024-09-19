@@ -3,10 +3,12 @@ package externalmodule
 import (
 	"context"
 	"fmt"
+	"sync"
+
 	"github.com/coder/websocket"
+
 	"github.com/filecoin-project/mir/stdevents"
 	"github.com/filecoin-project/mir/stdtypes"
-	"sync"
 )
 
 type Connection websocket.Conn
@@ -56,7 +58,7 @@ func (c *Connection) Submit(ctx context.Context, events *stdtypes.EventList) (*s
 
 func (c *Connection) Close(ctx context.Context) error {
 	conn := (*websocket.Conn)(c)
-	defer conn.CloseNow()
+	defer func() { _ = conn.CloseNow() }()
 
 	err := conn.Write(ctx, websocket.MessageBinary, controlMessageClose().Bytes())
 	if err != nil {
@@ -99,6 +101,10 @@ func sendEvents(ctx context.Context, conn *websocket.Conn, events *stdtypes.Even
 func receiveResponse(ctx context.Context, conn *websocket.Conn) (*stdtypes.EventList, error) {
 	// Read the number of resulting events returned from the remote module.
 	msgType, msgData, err := conn.Read(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("could not read response data: %w", err)
+	}
+
 	if msgType != websocket.MessageBinary {
 		return nil, fmt.Errorf("only binary message type is accepted for control messages")
 	}
@@ -106,7 +112,7 @@ func receiveResponse(ctx context.Context, conn *websocket.Conn) (*stdtypes.Event
 	if err != nil {
 		return nil, fmt.Errorf("could not load control message: %w", err)
 	}
-	if command.MsgType != MSG_EVENTS {
+	if command.MsgType != MsgEvents {
 		return nil, fmt.Errorf("expected MSG_EVENTS control message type but got %v", command.MsgType)
 	}
 
@@ -115,6 +121,9 @@ func receiveResponse(ctx context.Context, conn *websocket.Conn) (*stdtypes.Event
 	for i := 0; i < command.NumEvents; i++ {
 
 		msgType, msgData, err := conn.Read(context.Background())
+		if err != nil {
+			return nil, fmt.Errorf("could not read response data: %w", err)
+		}
 		if msgType != websocket.MessageBinary {
 			return nil, fmt.Errorf("only binary message type is accepted for events")
 		}
