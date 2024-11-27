@@ -134,7 +134,7 @@ func receiveResponse(ctx context.Context, conn *websocket.Conn) (*stdtypes.Event
 	resultEvents := stdtypes.EmptyList()
 	for i := 0; i < command.NumEvents; i++ {
 
-		msgType, msgData, err := conn.Read(context.Background())
+		msgType, msgData, err := conn.Read(ctx)
 		if err != nil {
 			return nil, fmt.Errorf("could not read response data: %w", err)
 		}
