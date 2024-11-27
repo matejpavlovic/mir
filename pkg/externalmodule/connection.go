@@ -11,8 +11,14 @@ import (
 	"github.com/filecoin-project/mir/stdtypes"
 )
 
+// Connection represents a connection to a particular module at a particular module server.
+// It is used to send events to and receive events from it.
 type Connection websocket.Conn
 
+// Connect establishes and returns a new connection
+// to a module server at address addr (in the form of "ws://server:port/path").
+// The path component of the address is used to specify which module at the module server to connect to.
+// When ctx is canceled before the connection is established, connecting aborts.
 func Connect(ctx context.Context, addr string) (*Connection, error) {
 
 	conn, _, err := websocket.Dial(ctx, addr, nil)
@@ -23,6 +29,9 @@ func Connect(ctx context.Context, addr string) (*Connection, error) {
 	return (*Connection)(conn), nil
 }
 
+// Submit sends the given events to the remote module, waits until the remote module processes them, and returns
+// the resulting events produced by the remote module.
+// One can see it as the proxy for the remote module's ApplyEvents method.
 func (c *Connection) Submit(ctx context.Context, events *stdtypes.EventList) (*stdtypes.EventList, error) {
 	conn := (*websocket.Conn)(c)
 	ctx, cancel := context.WithCancel(ctx)
@@ -56,6 +65,7 @@ func (c *Connection) Submit(ctx context.Context, events *stdtypes.EventList) (*s
 	return response, err
 }
 
+// Close closes the connection to the remote module.
 func (c *Connection) Close(ctx context.Context) error {
 	conn := (*websocket.Conn)(c)
 	defer func() { _ = conn.CloseNow() }()
@@ -68,6 +78,9 @@ func (c *Connection) Close(ctx context.Context) error {
 	return conn.Close(websocket.StatusNormalClosure, "")
 }
 
+// sendEvents writes a list of events to the raw websocket connection.
+// All sent events are serialized and wrapped in a stdevents.Raw event.
+// Thus, on the other side of the connection, only control messages and events of type stdevents.Raw can be expected.
 func sendEvents(ctx context.Context, conn *websocket.Conn, events *stdtypes.EventList) error {
 	// Announce the number of events that will be sent.
 	err := conn.Write(ctx, websocket.MessageBinary, controlMessageEvents(events.Len()).Bytes())
@@ -98,6 +111,7 @@ func sendEvents(ctx context.Context, conn *websocket.Conn, events *stdtypes.Even
 	return nil
 }
 
+// receiveResponse reads the events the module server sends over the websocket and returns them in an EventList.
 func receiveResponse(ctx context.Context, conn *websocket.Conn) (*stdtypes.EventList, error) {
 	// Read the number of resulting events returned from the remote module.
 	msgType, msgData, err := conn.Read(ctx)

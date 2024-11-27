@@ -18,15 +18,23 @@ const (
 	ConnPending
 )
 
+// ModuleHandler implements a handler function for an incoming connection at the module server for a PassiveModule.
 type ModuleHandler struct {
-	path   string
+
+	// URL path (after the domain) under which this module will be accessible
+	path string
+
+	// The module logic
 	module modules.PassiveModule
 
-	// Used to make sure there is only a single client talking to the server.
+	// Used to make sure there is only a single client talking to the handler.
 	// This is needed to prevent concurrent access to the module.
+	// The int32 type is somewhat arbitrary - it only needs to be supported by the CompareAndSwap
+	// family of functions in the atomic package.
 	connectionStatus int32
 }
 
+// NewHandler allocates and returns a pointer to a new ModuleHandler.
 func NewHandler(path string, module modules.PassiveModule) *ModuleHandler {
 	return &ModuleHandler{
 		path:             path,
@@ -35,13 +43,19 @@ func NewHandler(path string, module modules.PassiveModule) *ModuleHandler {
 	}
 }
 
+// handleConnection is the function that will be invoked by the HTTP server this handler is part of
+// each time a connection to this handler's path is created.
+// It reads websocket messages from the connection, passes them to the module logic,
+// and writes back the generated events.
 func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *http.Request) {
 
+	// Only accept the first connection.
 	if !atomic.CompareAndSwapInt32(&mh.connectionStatus, ConnPending, ConnActive) {
 		writer.WriteHeader(http.StatusForbidden)
 		return
 	}
 
+	// Only accept a websocket connection.
 	conn, err := websocket.Accept(writer, request, nil)
 	if err != nil {
 		writer.WriteHeader(http.StatusBadRequest)
@@ -51,15 +65,18 @@ func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *h
 	//TODO: Figure out a better way to deal with the context.
 	ctx := context.Background()
 
+	// Main loop for reading incoming websocket messages.
 	var msgType websocket.MessageType
 	var msgData []byte
 	for msgType, msgData, err = conn.Read(ctx); err == nil; msgType, msgData, err = conn.Read(ctx) {
 
+		// Only accept binary type messages.
 		if msgType != websocket.MessageBinary {
 			err = fmt.Errorf("only binary message type is accepted for control messages")
 			break
 		}
 
+		// The first message must always be a control message, followed by a variable number of event messages.
 		command, loadingErr := controlMessageFromBytes(msgData)
 		if loadingErr != nil {
 			err = fmt.Errorf("could not load control message: %w", loadingErr)
@@ -67,11 +84,14 @@ func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *h
 		}
 
 		if command.MsgType == MsgEvents {
+			// If the control message announces the number of events that follow,
+			// process them all (mh.processEvents reads them from conn).
 			err = mh.processEvents(ctx, conn, command.NumEvents)
 			if err != nil {
 				break
 			}
 		} else if command.MsgType == MsgClose {
+			// If we received a closing message, stop processing.
 			break
 		} else {
 			err = fmt.Errorf("unknown control msg type: %v", command.MsgType)
@@ -89,6 +109,8 @@ func (mh *ModuleHandler) handleConnection(writer http.ResponseWriter, request *h
 	}
 }
 
+// processEvents reads messages from the connection, passes them to the module logic,
+// and sends back the generated events.
 func (mh *ModuleHandler) processEvents(ctx context.Context, conn *websocket.Conn, numEvents int) error {
 	resultEvents := stdtypes.EmptyList()
 	for ; numEvents > 0; numEvents-- {
@@ -102,6 +124,8 @@ func (mh *ModuleHandler) processEvents(ctx context.Context, conn *websocket.Conn
 	return sendEvents(ctx, conn, resultEvents)
 }
 
+// processNextEvent reads a single message from the given websocket connection, applies it to the module logic,
+// and returns the resulting events.
 func (mh *ModuleHandler) processNextEvent(ctx context.Context, conn *websocket.Conn) (*stdtypes.EventList, error) {
 	msgType, msgData, err := conn.Read(ctx)
 	if err != nil {

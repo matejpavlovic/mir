@@ -9,6 +9,10 @@ import (
 	"github.com/filecoin-project/mir/stdtypes"
 )
 
+// NewProxyModule returns a new module that serves as a local proxy to an external module hosted on a module server.
+// The addr parameter specifies the full URL (address and path) of the module at the server.
+// The connection between the proxy and the module server is established when the module receives stdevents.Init,
+// At which time the server must be running and accepting new connections.
 func NewProxyModule(moduleID stdtypes.ModuleID, addr string) modules.PassiveModule {
 	m := dsl.NewModule(moduleID)
 	var connection *Connection
