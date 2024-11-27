@@ -1,6 +1,7 @@
 package multisigcollector
 
 import (
+	"fmt"
 	"math"
 
 	"google.golang.org/protobuf/proto"
@@ -69,12 +70,17 @@ func NewReconfigurableModule(mc ModuleConfig, paramsTemplate ModuleParams, logge
 				submc := mc
 				submc.Self = mscID
 
+				// Check for integer overflow
+				if mscParams.MaxRequests > math.MaxInt {
+					return nil, fmt.Errorf("max requests too high for int type: %d", mscParams.MaxRequests)
+				}
+
 				// Fill in instance-specific parameters.
 				moduleParams := paramsTemplate
 				moduleParams.InstanceUID = []byte(mscID)
 				moduleParams.EpochNr = mscParams.Epoch
 				moduleParams.Membership = mscParams.Membership
-				moduleParams.MaxRequests = int(mscParams.MaxRequests)
+				moduleParams.MaxRequests = int(mscParams.MaxRequests) //nolint:gosec
 				// TODO: Use InstanceUIDs properly.
 				//       (E.g., concatenate this with the instantiating protocol's InstanceUID when introduced.)
 

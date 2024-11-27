@@ -97,8 +97,8 @@ type PbftProposalState struct {
 // ============================================================
 
 // NumCommitted returns the number of slots that are already committed in the given view.
-func (state *State) NumCommitted(view ot.ViewNr) int {
-	numCommitted := 0
+func (state *State) NumCommitted(view ot.ViewNr) uint64 {
+	numCommitted := uint64(0)
 	for _, slot := range state.Slots[view] {
 		if slot.Committed {
 			numCommitted++
@@ -151,7 +151,7 @@ func (state *State) InitView(
 		pbftpbevents.ViewChangeSNTimeout(
 			moduleConfig.Self,
 			view,
-			uint64(state.NumCommitted(view))).Pb(),
+			state.NumCommitted(view)).Pb(), //nolint:gosec
 	)
 	stddsl.TimerDelay(
 		m,
@@ -168,7 +168,7 @@ func (state *State) InitView(
 // AllCommitted returns true if all slots of this pbftInstance in the current view are in the committed state
 // (i.e., have the committed flag set).
 func (state *State) AllCommitted() bool {
-	return state.NumCommitted(state.View) == len(state.Slots[state.View])
+	return state.NumCommitted(state.View) == uint64(len(state.Slots[state.View]))
 }
 
 func (state *State) LookUpPreprepare(sn tt.SeqNr, digest []byte) *pbftpbtypes.Preprepare {

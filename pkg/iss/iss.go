@@ -14,6 +14,7 @@ package iss
 import (
 	"encoding/binary"
 	"fmt"
+	"math"
 
 	es "github.com/go-errors/errors"
 	"google.golang.org/protobuf/proto"
@@ -342,7 +343,7 @@ func New(
 
 			// Choose a leader for the new orderer instance.
 			// TODO: Use the corresponding epoch's leader set to pick a leader, instead of just selecting one from all nodes.
-			leader := maputil.GetSortedKeys(membership.Nodes)[int(epoch)%len(membership.Nodes)]
+			leader := maputil.GetSortedKeys(membership.Nodes)[int(epoch)%len(membership.Nodes)] //nolint:gosec
 
 			// Serialize checkpoint, so it can be proposed as a value.
 			stableCheckpoint := checkpointpbtypes.StableCheckpoint{
@@ -408,7 +409,7 @@ func New(
 		// that are not yet part of the system for those checkpoints.
 		var delayed []stdtypes.NodeID
 		for n := range membership.Nodes {
-			if epoch > iss.nodeEpochMap[n]+tt.EpochNr(iss.Params.RetainedEpochs) {
+			if epoch > iss.nodeEpochMap[n]+tt.EpochNr(iss.Params.RetainedEpochs) { //nolint:gosec
 				delayed = append(delayed, n)
 			}
 		}
@@ -438,7 +439,11 @@ func New(
 
 			sc := checkpoint.StableCheckpointFromPb(chkp.Pb())
 			// Check how far the received stable checkpoint is ahead of the local node's state.
-			chkpMembershipOffset := int(sc.Epoch()) - 1 - int(iss.epoch.Nr())
+			if sc.Epoch() > math.MaxInt || iss.epoch.Nr() > math.MaxInt {
+				return es.Errorf("epoch number out of integer range")
+			}
+			// Integer casting required here to prevent underflow.
+			chkpMembershipOffset := int(sc.Epoch()) - 1 - int(iss.epoch.Nr()) //nolint:gosec
 			if chkpMembershipOffset <= 0 {
 				// Ignore stable checkpoints that are not far enough
 				// ahead of the current state of the local node.
@@ -465,7 +470,11 @@ func New(
 		}
 
 		chkp := checkpoint.StableCheckpointFromPb(c.checkpoint.Pb())
-		chkpMembershipOffset := int(chkp.Epoch()) - 1 - int(iss.epoch.Nr())
+		if chkp.Epoch() > math.MaxInt || iss.epoch.Nr() > math.MaxInt {
+			return es.Errorf("epoch number out of integer range")
+		}
+		// Integer casting required here to prevent underflow.
+		chkpMembershipOffset := int(chkp.Epoch()) - 1 - int(iss.epoch.Nr()) //nolint:gosec
 		if chkpMembershipOffset <= 0 {
 			// Ignore stable checkpoints that have been lagged behind
 			// during validation
@@ -564,7 +573,7 @@ func InitialStateSnapshot(
 		return nil, err
 	}
 
-	firstEpochLength := uint64(params.SegmentLength * len(params.InitialMembership.Nodes))
+	firstEpochLength := uint64(params.SegmentLength * len(params.InitialMembership.Nodes)) //nolint:gosec
 	return &trantorpbtypes.StateSnapshot{
 		AppData: appState,
 		EpochData: &trantorpbtypes.EpochData{
@@ -624,7 +633,7 @@ func (iss *ISS) initAvailability() {
 		(*multisigcollector.InstanceParams)(&mscpbtypes.InstanceParams{
 			Epoch:       iss.epoch.Nr(),
 			Membership:  iss.memberships[0],
-			MaxRequests: uint64(iss.Params.SegmentLength),
+			MaxRequests: uint64(iss.Params.SegmentLength), //nolint:gosec
 		}),
 		stdtypes.RetentionIndex(iss.epoch.Nr()),
 	)
@@ -640,12 +649,12 @@ func (iss *ISS) initOrderers() error {
 
 		// Create segment.
 		// The sequence proposals are all set to nil, so that the orderer proposes new availability certificates.
-		proposals := freeProposals(iss.nextDeliveredSN+tt.SeqNr(i), tt.SeqNr(len(leaders)), iss.Params.SegmentLength)
+		proposals := freeProposals(iss.nextDeliveredSN+tt.SeqNr(i), tt.SeqNr(len(leaders)), iss.Params.SegmentLength) //nolint:gosec
 		seg, err := common.NewSegment(leader, iss.epoch.Membership, proposals)
 		if err != nil {
 			return es.Errorf("error creating new segment: %w", err)
 		}
-		iss.newEpochSN += tt.SeqNr(seg.Len())
+		iss.newEpochSN += tt.SeqNr(seg.Len()) //nolint:gosec
 
 		// Instantiate a new PBFT orderer.
 		stddsl.NewSubmodule(iss.m, iss.moduleConfig.Ordering,
@@ -792,7 +801,7 @@ func (iss *ISS) advanceEpoch() error {
 			EpochConfig: &trantorpbtypes.EpochConfig{ // nolint:govet
 				iss.epoch.Nr(),
 				iss.epoch.FirstSN(),
-				uint64(iss.epoch.Len()),
+				uint64(iss.epoch.Len()), //nolint:gosec
 				iss.memberships,
 			},
 		},
@@ -904,8 +913,9 @@ func (iss *ISS) deliverCommonCheckpoint(chkpData []byte) error {
 	// The state to prune is determined according to the retention index
 	// which is derived from the epoch number the new
 	// stable checkpoint is associated with.
-	pruneIndex := int(chkp.Epoch()) - iss.Params.RetainedEpochs
-	if pruneIndex > 0 { // "> 0" and not ">= 0", since only entries strictly smaller than the index are pruned.
+	// Integer casting required here to prevent underflow.
+	pruneIndex := int(chkp.Epoch()) - iss.Params.RetainedEpochs //nolint:gosec
+	if pruneIndex > 0 {                                         // "> 0" and not ">= 0", since only entries strictly smaller than the index are pruned.
 
 		// Prune timer, checkpointing, availability, orderers, and other modules.
 		stddsl.GarbageCollect(iss.m, iss.moduleConfig.Timer, stdtypes.RetentionIndex(pruneIndex))
@@ -917,7 +927,7 @@ func (iss *ISS) deliverCommonCheckpoint(chkpData []byte) error {
 
 		// Prune epoch state.
 		for epoch := range iss.epochs {
-			if epoch < tt.EpochNr(pruneIndex) {
+			if epoch < tt.EpochNr(pruneIndex) { //nolint:gosec
 				delete(iss.epochs, epoch)
 			}
 		}
@@ -931,7 +941,7 @@ func (iss *ISS) deliverCommonCheckpoint(chkpData []byte) error {
 			// Note that we are not using the current epoch number here, because it is not relevant for checkpoints.
 			// Using pruneIndex makes sure that the re-transmission is stopped
 			// on every stable checkpoint (when another one is started).
-			stdtypes.RetentionIndex(pruneIndex),
+			stdtypes.RetentionIndex(pruneIndex), //nolint:gosec
 			isspbevents.PushCheckpoint(iss.moduleConfig.Self).Pb(),
 		)
 

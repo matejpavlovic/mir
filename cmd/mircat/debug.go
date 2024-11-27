@@ -111,7 +111,7 @@ func debug(args *arguments) error {
 			for _, event := range entry.Events {
 
 				// Set the index of the event in the event log.
-				metadata.index = uint64(index)
+				metadata.index = uint64(index) //nolint:gosec
 
 				// If the event was selected by the user for inspection, pause before submitting it to the node.
 				// The processing continues after the user's interactive confirmation.
@@ -199,9 +199,6 @@ func debuggerNode(id stdtypes.NodeID, membership *trantorpbtypes.Membership) (*m
 		),
 		"iss":   protocol,
 		"timer": timer.New(),
-	}
-	if err != nil {
-		panic(fmt.Errorf("error initializing the Mir modules: %w", err))
 	}
 
 	node, err := mir.NewNode(id, mir.DefaultNodeConfig().WithLogger(logger), nodeModules, nil)

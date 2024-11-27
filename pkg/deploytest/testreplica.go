@@ -183,7 +183,7 @@ func (tr *TestReplica) submitFakeTransactions(ctx context.Context, node *mir.Nod
 				destModule,
 				[]*trantorpbtypes.Transaction{{
 					ClientId: tt.NewClientIDFromInt(0),
-					TxNo:     tt.TxNo(i),
+					TxNo:     tt.TxNo(i), //nolint:gosec
 					Data:     []byte(fmt.Sprintf("Transaction %d", i)),
 				}},
 			).Pb())

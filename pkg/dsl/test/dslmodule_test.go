@@ -278,7 +278,7 @@ func newContextTestingModule(mc *contextTestingModuleModuleConfig) dsl.Module {
 
 			// NB: avoid using primitive types as the context in the actual implementation, prefer named structs,
 			//     remember that the context type is used to match requests with responses.
-			cryptopbdsl.VerifySigs(m, mc.Crypto, sliceutil.Repeat(msg, int(u)), signatures, nodeIDs, &u)
+			cryptopbdsl.VerifySigs(m, mc.Crypto, sliceutil.Repeat(msg, int(u)), signatures, nodeIDs, &u) //nolint:gosec
 		}
 		return nil
 	})
