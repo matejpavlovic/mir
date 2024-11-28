@@ -5,8 +5,8 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 // FunctionParam represents a parameter of a function.

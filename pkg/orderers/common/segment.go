@@ -5,12 +5,12 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/orderers/types"
-	ordererpbtypes "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/orderers/types"
+	ordererpbtypes "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The Segment type represents an ISS Segment.

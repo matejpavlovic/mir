@@ -1,9 +1,9 @@
 package appmodule
 
 import (
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // reconfigurableAppLogic is a wrapper around a static app logic that allows a static app logic

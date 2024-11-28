@@ -32,7 +32,7 @@ test_cov:
 .PHONY: format
 format:
 	gofmt -w -s .
-	goimports -w -local "github.com/filecoin-project/mir" .
+	goimports -w -local "github.com/matejpavlovic/mir" .
 
 .PHONY: lint
 lint:

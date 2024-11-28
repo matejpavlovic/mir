@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 
-	"github.com/filecoin-project/mir/pkg/pb/messagepb"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type NullTransport struct{}

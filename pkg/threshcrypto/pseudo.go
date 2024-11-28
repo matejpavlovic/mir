@@ -8,7 +8,7 @@ import (
 	es "github.com/go-errors/errors"
 	"golang.org/x/exp/slices"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 var (

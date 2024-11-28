@@ -19,8 +19,8 @@ import (
 	es "github.com/go-errors/errors"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type EventRecord struct {

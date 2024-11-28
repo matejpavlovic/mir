@@ -3,9 +3,9 @@
 package pingpongpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	pingpongpb "github.com/filecoin-project/mir/pkg/pb/pingpongpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	pingpongpb "github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 type Event struct {

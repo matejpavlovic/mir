@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package transportpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/transportpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/transportpb";
 
 import "messagepb/messagepb.proto";
 
@@ -23,12 +23,12 @@ message SendMessage {
   option (mir.event) = true;
 
   messagepb.Message msg          = 1;
-  repeated string   destinations = 2 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  repeated string   destinations = 2 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
 }
 
 message MessageReceived {
   option (mir.event) = true;
 
-  string            from = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  string            from = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
   messagepb.Message msg  = 2;
 }

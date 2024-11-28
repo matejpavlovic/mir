@@ -5,16 +5,16 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/messagebuffer"
-	"github.com/filecoin-project/mir/pkg/orderers/common"
-	ot "github.com/filecoin-project/mir/pkg/orderers/types"
-	pbftpbevents "github.com/filecoin-project/mir/pkg/pb/pbftpb/events"
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	stddsl "github.com/filecoin-project/mir/stdevents/dsl"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/messagebuffer"
+	"github.com/matejpavlovic/mir/pkg/orderers/common"
+	ot "github.com/matejpavlovic/mir/pkg/orderers/types"
+	pbftpbevents "github.com/matejpavlovic/mir/pkg/pb/pbftpb/events"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stddsl "github.com/matejpavlovic/mir/stdevents/dsl"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ModuleParams struct {

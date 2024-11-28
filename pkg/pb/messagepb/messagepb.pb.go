@@ -12,14 +12,14 @@
 package messagepb
 
 import (
-	mscpb "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb"
-	bcbpb "github.com/filecoin-project/mir/pkg/pb/bcbpb"
-	checkpointpb "github.com/filecoin-project/mir/pkg/pb/checkpointpb"
-	isspb "github.com/filecoin-project/mir/pkg/pb/isspb"
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
-	_ "github.com/filecoin-project/mir/pkg/pb/net"
-	ordererpb "github.com/filecoin-project/mir/pkg/pb/ordererpb"
-	pingpongpb "github.com/filecoin-project/mir/pkg/pb/pingpongpb"
+	mscpb "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb"
+	bcbpb "github.com/matejpavlovic/mir/pkg/pb/bcbpb"
+	checkpointpb "github.com/matejpavlovic/mir/pkg/pb/checkpointpb"
+	isspb "github.com/matejpavlovic/mir/pkg/pb/isspb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
+	_ "github.com/matejpavlovic/mir/pkg/pb/net"
+	ordererpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb"
+	pingpongpb "github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

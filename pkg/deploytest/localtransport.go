@@ -3,15 +3,15 @@ package deploytest
 import (
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/net"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/testsim"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/net"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/testsim"
 )
 
 type LocalTransportLayer interface {

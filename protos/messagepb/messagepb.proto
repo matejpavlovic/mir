@@ -8,7 +8,7 @@ syntax = "proto3";
 
 package messagepb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/messagepb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/messagepb";
 
 import "isspb/isspb.proto";
 import "bcbpb/bcbpb.proto";
@@ -23,7 +23,7 @@ import "net/codegen_extensions.proto";
 message Message {
   option (net.message_root) = true;
 
-  string dest_module = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string dest_module = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
 
   oneof type {
     option (net.message_type) = true;

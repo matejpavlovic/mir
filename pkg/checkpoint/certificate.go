@@ -4,9 +4,9 @@ import (
 	"github.com/fxamacker/cbor/v2"
 	es "github.com/go-errors/errors"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 // Certificate represents a certificate of validity of a checkpoint.

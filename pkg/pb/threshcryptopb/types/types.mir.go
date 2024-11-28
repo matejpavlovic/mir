@@ -3,12 +3,12 @@
 package threshcryptopbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types "github.com/filecoin-project/mir/pkg/pb/contextstorepb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/dslpb/types"
-	threshcryptopb "github.com/filecoin-project/mir/pkg/pb/threshcryptopb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types "github.com/matejpavlovic/mir/pkg/pb/contextstorepb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/dslpb/types"
+	threshcryptopb "github.com/matejpavlovic/mir/pkg/pb/threshcryptopb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

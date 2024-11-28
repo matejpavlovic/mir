@@ -3,14 +3,14 @@
 package isspbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types2 "github.com/filecoin-project/mir/pkg/pb/availabilitypb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	isspb "github.com/filecoin-project/mir/pkg/pb/isspb"
-	types3 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/trantor/types"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	isspb "github.com/matejpavlovic/mir/pkg/pb/isspb"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ISSMessage struct {

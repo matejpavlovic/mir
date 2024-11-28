@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chkpvalidatorpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/checkpointpb/chkpvalidatorpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/chkpvalidatorpb";
 
 import "contextstorepb/contextstorepb.proto";
 import "dslpb/dslpb.proto";
@@ -30,7 +30,7 @@ message ValidateCheckpoint {
   option (mir.event) = true;
 
   checkpointpb.StableCheckpoint checkpoint = 1;
-  uint64 epoch_nr = 2 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.EpochNr"];
+  uint64 epoch_nr = 2 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.EpochNr"];
   repeated trantorpb.Membership memberships = 3;
   ValidateChkpOrigin origin = 4 [(mir.origin_request) = true];
 }
@@ -45,7 +45,7 @@ message CheckpointValidated {
 message ValidateChkpOrigin {
   option (mir.struct) = true;
 
-  string module = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string module = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
   oneof type {
     contextstorepb.Origin context_store = 2;
     dslpb.Origin          dsl           = 3;

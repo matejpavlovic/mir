@@ -4,7 +4,7 @@ package transactionreceiver
 
 import (
 	context "context"
-	trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
+	trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

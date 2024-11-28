@@ -6,9 +6,9 @@ import (
 	"github.com/fxamacker/cbor/v2"
 	es "github.com/go-errors/errors"
 
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type LeaderPolicyType string

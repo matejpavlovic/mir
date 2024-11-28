@@ -1,9 +1,9 @@
 package appmodule
 
 import (
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // AppLogic represents the application logic of an SMR system.

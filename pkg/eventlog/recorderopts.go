@@ -1,8 +1,8 @@
 package eventlog
 
 import (
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type RecorderOpt interface{}

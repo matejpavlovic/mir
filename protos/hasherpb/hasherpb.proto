@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package hasherpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/hasherpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/hasherpb";
 
 import "contextstorepb/contextstorepb.proto";
 import "dslpb/dslpb.proto";
@@ -53,7 +53,7 @@ message ResultOne {
 message HashOrigin {
   option (mir.struct) = true;
 
-  string module = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string module = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
   oneof type {
     contextstorepb.Origin           context_store = 2;
     dslpb.Origin                    dsl           = 4;

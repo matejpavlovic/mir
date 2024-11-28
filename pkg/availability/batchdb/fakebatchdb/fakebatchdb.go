@@ -1,14 +1,14 @@
 package fakebatchdb
 
 import (
-	msctypes "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	batchdbpbdsl "github.com/filecoin-project/mir/pkg/pb/availabilitypb/batchdbpb/dsl"
-	batchdbpbtypes "github.com/filecoin-project/mir/pkg/pb/availabilitypb/batchdbpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	msctypes "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	batchdbpbdsl "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/batchdbpb/dsl"
+	batchdbpbtypes "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/batchdbpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig sets the module ids. All replicas are expected to use identical module configurations.

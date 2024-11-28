@@ -1,8 +1,8 @@
 package mir
 
 import (
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // eventBuffer is a buffer for storing outstanding events that need to be processed by the node.

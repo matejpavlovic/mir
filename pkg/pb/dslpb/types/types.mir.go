@@ -3,9 +3,9 @@
 package dslpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	dslpb "github.com/filecoin-project/mir/pkg/pb/dslpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	dslpb "github.com/matejpavlovic/mir/pkg/pb/dslpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 type Origin struct {

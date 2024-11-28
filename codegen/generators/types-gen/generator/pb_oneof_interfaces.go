@@ -3,8 +3,8 @@ package generator
 import (
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/model/types"
 )
 
 func generateOneofInterface(g *jen.File, oneof *types.Oneof) error {

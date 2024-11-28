@@ -1,14 +1,14 @@
 package chkpvalidator
 
 import (
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	cvpbdsl "github.com/filecoin-project/mir/pkg/pb/checkpointpb/chkpvalidatorpb/dsl"
-	cvpbtypes "github.com/filecoin-project/mir/pkg/pb/checkpointpb/chkpvalidatorpb/types"
-	checkpointpbtypes "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	cvpbdsl "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/chkpvalidatorpb/dsl"
+	cvpbtypes "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/chkpvalidatorpb/types"
+	checkpointpbtypes "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig sets the module ids.

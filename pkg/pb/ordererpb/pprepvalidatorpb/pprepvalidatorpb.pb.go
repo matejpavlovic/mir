@@ -7,11 +7,11 @@
 package pprepvalidatorpb
 
 import (
-	contextstorepb "github.com/filecoin-project/mir/pkg/pb/contextstorepb"
-	dslpb "github.com/filecoin-project/mir/pkg/pb/dslpb"
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
-	pbftpb "github.com/filecoin-project/mir/pkg/pb/pbftpb"
-	trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
+	contextstorepb "github.com/matejpavlovic/mir/pkg/pb/contextstorepb"
+	dslpb "github.com/matejpavlovic/mir/pkg/pb/dslpb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
+	pbftpb "github.com/matejpavlovic/mir/pkg/pb/pbftpb"
+	trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

@@ -6,8 +6,8 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type serializableTimerRepeat struct {

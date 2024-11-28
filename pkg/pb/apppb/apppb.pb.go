@@ -7,8 +7,8 @@
 package apppb
 
 import (
-	checkpointpb "github.com/filecoin-project/mir/pkg/pb/checkpointpb"
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
+	checkpointpb "github.com/matejpavlovic/mir/pkg/pb/checkpointpb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

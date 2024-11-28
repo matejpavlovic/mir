@@ -3,9 +3,9 @@
 package pingpongpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	events "github.com/filecoin-project/mir/pkg/pb/pingpongpb/events"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	events "github.com/matejpavlovic/mir/pkg/pb/pingpongpb/events"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

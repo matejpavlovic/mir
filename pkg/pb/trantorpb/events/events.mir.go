@@ -3,12 +3,12 @@
 package trantorpbevents
 
 import (
-	types3 "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb/types"
-	types4 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb/types"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func ClientProgress(destModule stdtypes.ModuleID, progress map[types.ClientID]*types1.DeliveredTXs) *types2.Event {

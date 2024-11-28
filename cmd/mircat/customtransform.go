@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // This function is applied to every event loaded from the event log

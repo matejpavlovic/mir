@@ -26,7 +26,7 @@ linters:
 
 linters-settings:
   goimports:
-    local-prefixes: github.com/filecoin-project/mir
+    local-prefixes: github.com/matejpavlovic/mir
   gocognit:
     min-complexity: 50
 

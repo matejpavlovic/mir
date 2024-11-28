@@ -2,7 +2,7 @@
 
 package isspb
 
-import checkpointpb "github.com/filecoin-project/mir/pkg/pb/checkpointpb"
+import checkpointpb "github.com/matejpavlovic/mir/pkg/pb/checkpointpb"
 
 type ISSMessage_Type = isISSMessage_Type
 

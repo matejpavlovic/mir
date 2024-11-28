@@ -1,9 +1,9 @@
 package deploytest
 
 import (
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // NewNodeIDsWeights returns a map of node ids of the given size suitable for testing with the nodeID as key and their weight as value. The weight is calculated

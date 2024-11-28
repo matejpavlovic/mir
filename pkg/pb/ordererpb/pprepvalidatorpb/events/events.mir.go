@@ -3,10 +3,10 @@
 package pprepvalidatorpbevents
 
 import (
-	types2 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func ValidatePreprepare(destModule stdtypes.ModuleID, preprepare *types.Preprepare, origin *types1.ValidatePreprepareOrigin) *types2.Event {

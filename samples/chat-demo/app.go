@@ -22,13 +22,13 @@ import (
 	es "github.com/go-errors/errors"
 	"github.com/multiformats/go-multiaddr"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/membership"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/membership"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 // ChatApp and its methods implement the application logic of the small chat demo application

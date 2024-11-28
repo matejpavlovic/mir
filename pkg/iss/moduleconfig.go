@@ -1,7 +1,7 @@
 package iss
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig contains the names of modules ISS depends on.

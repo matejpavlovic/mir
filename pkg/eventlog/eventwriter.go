@@ -3,8 +3,8 @@ package eventlog
 import (
 	"compress/gzip"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type EventWriter interface {

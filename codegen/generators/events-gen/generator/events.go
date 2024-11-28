@@ -3,8 +3,8 @@ package generator
 import (
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/model/events"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/model/events"
 )
 
 func generateEventConstructorsRecursively(

@@ -3,12 +3,12 @@
 package batchdbpbevents
 
 import (
-	types "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/availabilitypb/batchdbpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types3 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types4 "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/batchdbpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types4 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func LookupBatch(destModule stdtypes.ModuleID, batchId types.BatchID, origin *types1.LookupBatchOrigin) *types2.Event {

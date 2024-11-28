@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ordererpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/ordererpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/ordererpb";
 
 import "trantorpb/trantorpb.proto";
 import "pbftpb/pbftpb.proto";
@@ -34,7 +34,7 @@ message PBFTSegment {
   option (mir.struct) = true;
 
   // The leader node of the orderer.
-  string leader = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  string leader = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
 
   // All nodes executing the orderer implementation.
   trantorpb.Membership membership = 2;
@@ -45,7 +45,7 @@ message PBFTSegment {
   // A non-nil value will be proposed (by this node) for that sequence number whenever possible.
   // Currently, such a "free" proposal is a new availability certificate in view 0,
   // and a special empty one in other views.
-  map<uint64, bytes> proposals = 3 [(mir.key_type) = "github.com/filecoin-project/mir/pkg/trantor/types.SeqNr"];
+  map<uint64, bytes> proposals = 3 [(mir.key_type) = "github.com/matejpavlovic/mir/pkg/trantor/types.SeqNr"];
 }
 
 message PBFTModule{

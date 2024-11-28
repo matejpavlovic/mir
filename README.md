@@ -1,6 +1,6 @@
-[![Go Reference](https://pkg.go.dev/badge/github.com/filecoin-project/mir.svg)](https://pkg.go.dev/github.com/filecoin-project/mir)
-[![Mir Test](https://github.com/filecoin-project/mir/actions/workflows/test.yml/badge.svg)](https://github.com/filecoin-project/mir/actions/workflows/test.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/filecoin-project/mir)](https://goreportcard.com/report/github.com/filecoin-project/mir)
+[![Go Reference](https://pkg.go.dev/badge/github.com/matejpavlovic/mir.svg)](https://pkg.go.dev/github.com/matejpavlovic/mir)
+[![Mir Test](https://github.com/matejpavlovic/mir/actions/workflows/test.yml/badge.svg)](https://github.com/matejpavlovic/mir/actions/workflows/test.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/matejpavlovic/mir)](https://goreportcard.com/report/github.com/matejpavlovic/mir)
 
 # Mir - The Distributed Protocol Implementation Framework
 
@@ -161,7 +161,7 @@ have a look at [Trantor](/pkg/trantor), a complex SMR system being implemented u
 
 **Contributions are more than welcome!**
 
-If you want to contribute, have a look at the open [issues](https://github.com/filecoin-project/mir/issues).
+If you want to contribute, have a look at the open [issues](https://github.com/matejpavlovic/mir/issues).
 If you have any questions (specific or general),
 do not hesitate to drop an email to the active [maintainer(s)](/MAINTAINERS.md)
 or write a message to the developers in the

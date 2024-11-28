@@ -3,12 +3,12 @@
 package transportpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types1 "github.com/filecoin-project/mir/codegen/model/types"
-	types "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	transportpb "github.com/filecoin-project/mir/pkg/pb/transportpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types1 "github.com/matejpavlovic/mir/codegen/model/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	transportpb "github.com/matejpavlovic/mir/pkg/pb/transportpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

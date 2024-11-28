@@ -5,13 +5,13 @@ package crypto
 import (
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/pb/cryptopb"
-	cryptopbevents "github.com/filecoin-project/mir/pkg/pb/cryptopb/events"
-	cryptopbtypes "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/pb/cryptopb"
+	cryptopbevents "github.com/matejpavlovic/mir/pkg/pb/cryptopb/events"
+	cryptopbtypes "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type MirModule struct {

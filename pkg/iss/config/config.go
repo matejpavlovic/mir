@@ -11,9 +11,9 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	lsp "github.com/filecoin-project/mir/pkg/iss/leaderselectionpolicy"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
+	lsp "github.com/matejpavlovic/mir/pkg/iss/leaderselectionpolicy"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
 )
 
 // The ModuleParams type defines all the ISS configuration parameters.

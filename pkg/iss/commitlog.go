@@ -1,8 +1,8 @@
 package iss
 
 import (
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The CommitLogEntry type represents an entry of the commit log, the final output of the ordering process.

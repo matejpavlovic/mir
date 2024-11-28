@@ -6,12 +6,12 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	eventpbtypes "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	stddsl "github.com/filecoin-project/mir/stdevents/dsl"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	eventpbtypes "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	stddsl "github.com/matejpavlovic/mir/stdevents/dsl"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ModuleConfig struct {

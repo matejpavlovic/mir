@@ -3,13 +3,13 @@ package pprepvalidator
 import (
 	es "github.com/go-errors/errors"
 
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
 
-	"github.com/filecoin-project/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/logging"
 
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/crypto"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/crypto"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
 )
 
 // ======================================================================

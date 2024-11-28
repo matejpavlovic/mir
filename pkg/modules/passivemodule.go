@@ -1,7 +1,7 @@
 package modules
 
 import (
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type PassiveModule interface {

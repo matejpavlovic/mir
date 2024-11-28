@@ -1,11 +1,11 @@
 package lookuptxs
 
 import (
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/common"
-	mpdsl "github.com/filecoin-project/mir/pkg/pb/mempoolpb/dsl"
-	mppb "github.com/filecoin-project/mir/pkg/pb/mempoolpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/common"
+	mpdsl "github.com/matejpavlovic/mir/pkg/pb/mempoolpb/dsl"
+	mppb "github.com/matejpavlovic/mir/pkg/pb/mempoolpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // IncludeTransactionLookupByID registers event handlers for processing RequestTransactions events.

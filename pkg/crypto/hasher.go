@@ -5,13 +5,13 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/hasherpb"
-	hasherpbevents "github.com/filecoin-project/mir/pkg/pb/hasherpb/events"
-	hasherpbtypes "github.com/filecoin-project/mir/pkg/pb/hasherpb/types"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/hasherpb"
+	hasherpbevents "github.com/matejpavlovic/mir/pkg/pb/hasherpb/events"
+	hasherpbtypes "github.com/matejpavlovic/mir/pkg/pb/hasherpb/types"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type HashImpl interface {

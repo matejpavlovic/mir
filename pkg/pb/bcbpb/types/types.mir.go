@@ -3,11 +3,11 @@
 package bcbpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types "github.com/filecoin-project/mir/codegen/model/types"
-	bcbpb "github.com/filecoin-project/mir/pkg/pb/bcbpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types "github.com/matejpavlovic/mir/codegen/model/types"
+	bcbpb "github.com/matejpavlovic/mir/pkg/pb/bcbpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

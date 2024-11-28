@@ -7,7 +7,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen/util/buildutil"
+	"github.com/matejpavlovic/mir/codegen/util/buildutil"
 )
 
 func RenderJenFile(jenFile *jen.File, outputDir, outputFileName string) (err error) {

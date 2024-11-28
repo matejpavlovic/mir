@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package apppb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/apppb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/apppb";
 
 import "checkpointpb/checkpointpb.proto";
 
@@ -24,7 +24,7 @@ message Event {
 message SnapshotRequest {
   option (mir.event) = true;
 
-  string reply_to = 1  [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string reply_to = 1  [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
 }
 
 message Snapshot {
@@ -42,6 +42,6 @@ message RestoreState {
 message NewEpoch {
   option (mir.event) = true;
 
-  uint64 epoch_nr = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.EpochNr"];
-  string protocol_module = 2 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  uint64 epoch_nr = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.EpochNr"];
+  string protocol_module = 2 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
 }

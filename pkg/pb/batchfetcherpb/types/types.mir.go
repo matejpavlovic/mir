@@ -3,12 +3,12 @@
 package batchfetcherpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types1 "github.com/filecoin-project/mir/codegen/model/types"
-	batchfetcherpb "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb"
-	trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
-	types "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types1 "github.com/matejpavlovic/mir/codegen/model/types"
+	batchfetcherpb "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb"
+	trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
+	types "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 type Event struct {

@@ -3,11 +3,11 @@ package trantor
 import (
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector"
-	issconfig "github.com/filecoin-project/mir/pkg/iss/config"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool"
-	"github.com/filecoin-project/mir/pkg/net/grpc"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector"
+	issconfig "github.com/matejpavlovic/mir/pkg/iss/config"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool"
+	"github.com/matejpavlovic/mir/pkg/net/grpc"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
 )
 
 type Params struct {

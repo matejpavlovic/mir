@@ -7,10 +7,10 @@
 package ordererpb
 
 import (
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
-	_ "github.com/filecoin-project/mir/pkg/pb/net"
-	pbftpb "github.com/filecoin-project/mir/pkg/pb/pbftpb"
-	trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
+	_ "github.com/matejpavlovic/mir/pkg/pb/net"
+	pbftpb "github.com/matejpavlovic/mir/pkg/pb/pbftpb"
+	trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

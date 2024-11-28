@@ -7,10 +7,10 @@ import (
 
 	"google.golang.org/protobuf/compiler/protogen"
 
-	"github.com/filecoin-project/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen"
 
-	"github.com/filecoin-project/mir/codegen/util/protogenutil"
-	"github.com/filecoin-project/mir/pkg/util/reflectutil"
+	"github.com/matejpavlovic/mir/codegen/util/protogenutil"
+	"github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 // This function generates method called Reflect[OneofName]Options for all oneofs. This method lists all

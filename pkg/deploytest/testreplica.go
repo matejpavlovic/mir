@@ -9,18 +9,18 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir"
-	"github.com/filecoin-project/mir/pkg/eventlog"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/net"
-	mempoolpbevents "github.com/filecoin-project/mir/pkg/pb/mempoolpb/events"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/testsim"
-	"github.com/filecoin-project/mir/pkg/transactionreceiver"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir"
+	"github.com/matejpavlovic/mir/pkg/eventlog"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/net"
+	mempoolpbevents "github.com/matejpavlovic/mir/pkg/pb/mempoolpb/events"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/testsim"
+	"github.com/matejpavlovic/mir/pkg/transactionreceiver"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // TestReplica represents one replica (that uses one instance of the mir.Node) in the test system.

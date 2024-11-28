@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/filecoin-project/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/modules"
 )
 
 func customModule() modules.PassiveModule {

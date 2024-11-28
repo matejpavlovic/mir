@@ -5,13 +5,13 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	cryptopbtypes "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	hasherpbtypes "github.com/filecoin-project/mir/pkg/pb/hasherpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/serializing"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
+	cryptopbtypes "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	hasherpbtypes "github.com/matejpavlovic/mir/pkg/pb/hasherpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/serializing"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
 )
 
 func serializeCheckpointForSig(epoch tt.EpochNr, seqNr tt.SeqNr, snapshotHash []byte) *cryptopbtypes.SignedData {

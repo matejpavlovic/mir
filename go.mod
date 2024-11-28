@@ -1,4 +1,4 @@
-module github.com/filecoin-project/mir
+module github.com/matejpavlovic/mir
 
 go 1.18
 

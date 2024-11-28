@@ -3,12 +3,12 @@
 package messagepb
 
 import (
-	mscpb "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb"
-	bcbpb "github.com/filecoin-project/mir/pkg/pb/bcbpb"
-	checkpointpb "github.com/filecoin-project/mir/pkg/pb/checkpointpb"
-	isspb "github.com/filecoin-project/mir/pkg/pb/isspb"
-	ordererpb "github.com/filecoin-project/mir/pkg/pb/ordererpb"
-	pingpongpb "github.com/filecoin-project/mir/pkg/pb/pingpongpb"
+	mscpb "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb"
+	bcbpb "github.com/matejpavlovic/mir/pkg/pb/bcbpb"
+	checkpointpb "github.com/matejpavlovic/mir/pkg/pb/checkpointpb"
+	isspb "github.com/matejpavlovic/mir/pkg/pb/isspb"
+	ordererpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb"
+	pingpongpb "github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
 )
 
 type Message_Type = isMessage_Type

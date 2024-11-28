@@ -3,9 +3,9 @@
 package availabilitypb
 
 import (
-	mscpb "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb"
-	contextstorepb "github.com/filecoin-project/mir/pkg/pb/contextstorepb"
-	dslpb "github.com/filecoin-project/mir/pkg/pb/dslpb"
+	mscpb "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb"
+	contextstorepb "github.com/matejpavlovic/mir/pkg/pb/contextstorepb"
+	dslpb "github.com/matejpavlovic/mir/pkg/pb/dslpb"
 )
 
 type Event_Type = isEvent_Type

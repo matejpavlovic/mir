@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package mir;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/mir";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/mir";
 
 import "google/protobuf/descriptor.proto";
 

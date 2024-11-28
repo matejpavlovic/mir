@@ -5,9 +5,9 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	checkpointpbtypes "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	checkpointpbtypes "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleParams represents the state associated with a single instance of the checkpoint protocol

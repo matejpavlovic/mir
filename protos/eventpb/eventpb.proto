@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package eventpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/eventpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/eventpb";
 
 import "apppb/apppb.proto";
 import "isspb/isspb.proto";
@@ -29,7 +29,7 @@ import "mir/codegen_extensions.proto";
 message Event {
   option (mir.event_root) = true;
 
-  string dest_module = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string dest_module = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
 
   oneof type {
     option (mir.event_type) = true;

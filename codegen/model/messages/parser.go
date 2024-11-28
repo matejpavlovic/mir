@@ -8,11 +8,11 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/filecoin-project/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen"
 
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/codegen/util/params"
-	"github.com/filecoin-project/mir/pkg/pb/net"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/codegen/util/params"
+	"github.com/matejpavlovic/mir/pkg/pb/net"
 )
 
 type Parser struct {

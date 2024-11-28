@@ -3,17 +3,17 @@ package pprepvalidator
 import (
 	"google.golang.org/protobuf/proto"
 
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/crypto"
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	ppvpbdsl "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb/dsl"
-	ppvpbtypes "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/stdmodules/factory"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/crypto"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	ppvpbdsl "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/dsl"
+	ppvpbtypes "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/stdmodules/factory"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig sets the module ids.

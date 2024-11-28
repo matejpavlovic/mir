@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package dslpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/dslpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/dslpb";
 
 import "mir/codegen_extensions.proto";
 

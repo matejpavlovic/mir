@@ -3,9 +3,9 @@
 package testerpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/testerpb/types"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/testerpb/types"
 )
 
 // Module-specific dsl functions for processing events.

@@ -4,8 +4,8 @@ import (
 	"github.com/dave/jennifer/jen"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	"github.com/filecoin-project/mir/codegen/util/astutil"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/codegen/util/astutil"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 // Field represents a field in a protobuf message.

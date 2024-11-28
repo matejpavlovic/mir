@@ -6,8 +6,8 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/codegen/util/params"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/codegen/util/params"
 )
 
 func PackagePath(sourcePackagePath string) string {

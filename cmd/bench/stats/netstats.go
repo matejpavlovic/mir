@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 type NetStats struct {

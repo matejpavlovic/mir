@@ -1,7 +1,7 @@
 package stdevents
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type mirEvent struct {

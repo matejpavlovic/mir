@@ -7,7 +7,7 @@ import (
 	"golang.org/x/exp/slices"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	"github.com/filecoin-project/mir/pkg/util/reflectutil"
+	"github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 func IsProtoMessage(goStructPtr reflect.Type) bool {

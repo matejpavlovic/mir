@@ -3,11 +3,11 @@
 package mscpbmsgs
 
 import (
-	types3 "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types3 "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func RequestSigMessage(destModule stdtypes.ModuleID, txs []*types.Transaction, reqId uint64) *types1.Message {

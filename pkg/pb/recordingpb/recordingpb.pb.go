@@ -12,7 +12,7 @@
 package recordingpb
 
 import (
-	eventpb "github.com/filecoin-project/mir/pkg/pb/eventpb"
+	eventpb "github.com/matejpavlovic/mir/pkg/pb/eventpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

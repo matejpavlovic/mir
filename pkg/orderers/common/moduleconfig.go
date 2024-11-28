@@ -1,7 +1,7 @@
 package common
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ModuleConfig struct {

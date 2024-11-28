@@ -7,8 +7,8 @@
 package pbftpb
 
 import (
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
-	_ "github.com/filecoin-project/mir/pkg/pb/net"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
+	_ "github.com/matejpavlovic/mir/pkg/pb/net"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

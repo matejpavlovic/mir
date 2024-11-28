@@ -3,9 +3,9 @@
 package bcbpbmsgs
 
 import (
-	types1 "github.com/filecoin-project/mir/pkg/pb/bcbpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/bcbpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func StartMessage(destModule stdtypes.ModuleID, data []uint8) *types.Message {

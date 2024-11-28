@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/externalmodule"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/externalmodule"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func main() {

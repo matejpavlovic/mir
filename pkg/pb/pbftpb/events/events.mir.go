@@ -3,11 +3,11 @@
 package pbftpbevents
 
 import (
-	types3 "github.com/filecoin-project/mir/pkg/orderers/types"
-	types "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types3 "github.com/matejpavlovic/mir/pkg/orderers/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func ProposeTimeout(destModule stdtypes.ModuleID, proposeTimeout uint64) *types.Event {

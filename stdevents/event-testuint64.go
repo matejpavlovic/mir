@@ -4,7 +4,7 @@ package stdevents
 import (
 	"fmt"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type TestUint64 struct {

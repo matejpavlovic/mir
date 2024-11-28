@@ -3,8 +3,8 @@
 package pprepvalidatorpb
 
 import (
-	contextstorepb "github.com/filecoin-project/mir/pkg/pb/contextstorepb"
-	dslpb "github.com/filecoin-project/mir/pkg/pb/dslpb"
+	contextstorepb "github.com/matejpavlovic/mir/pkg/pb/contextstorepb"
+	dslpb "github.com/matejpavlovic/mir/pkg/pb/dslpb"
 )
 
 type Event_Type = isEvent_Type

@@ -41,4 +41,4 @@ Node and client IDs native to systems where Mir is used (e.g. Eudico) will be ea
 
 ## Related issues
 
-[#5: Make Node ID and Client ID string types](https://github.com/filecoin-project/mir/issues/5)
+[#5: Make Node ID and Client ID string types](https://github.com/matejpavlovic/mir/issues/5)

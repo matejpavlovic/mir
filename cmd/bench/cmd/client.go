@@ -18,12 +18,12 @@ import (
 	"github.com/spf13/cobra"
 	rateLimiter "golang.org/x/time/rate"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/dummyclient"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/membership"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/dummyclient"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/membership"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 const (

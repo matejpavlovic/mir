@@ -7,8 +7,8 @@
 package transportpb
 
 import (
-	messagepb "github.com/filecoin-project/mir/pkg/pb/messagepb"
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
+	messagepb "github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

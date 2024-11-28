@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package trantorpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/trantorpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/trantorpb";
 
 import "mir/codegen_extensions.proto";
 
@@ -12,8 +12,8 @@ import "mir/codegen_extensions.proto";
 message Transaction {
   option (mir.struct) = true;
 
-  string client_id = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.ClientID"];
-  uint64 tx_no     = 2 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.TxNo"];
+  string client_id = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.ClientID"];
+  uint64 tx_no     = 2 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.TxNo"];
   uint64 type      = 3; // TODO not being used at the moment? (only some boilerplate code in pkg/serializing)
   bytes  data      = 4;
 }
@@ -40,8 +40,8 @@ message EpochData {
 message EpochConfig {
   option (mir.event) = true;
 
-  uint64              epoch_nr    = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.EpochNr"];
-  uint64              first_sn    = 2 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.SeqNr"];
+  uint64              epoch_nr    = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.EpochNr"];
+  uint64              first_sn    = 2 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.SeqNr"];
   uint64              length      = 3;
   repeated Membership memberships = 4;
 }
@@ -52,16 +52,16 @@ message EpochConfig {
 message Membership {
   option (mir.struct) = true;
 
-  map<string, NodeIdentity> nodes = 1 [(mir.key_type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  map<string, NodeIdentity> nodes = 1 [(mir.key_type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
 }
 
 message NodeIdentity {
   option (mir.struct) = true;
 
-  string id     = 1 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  string id     = 1 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
   string addr   = 2; // Value type is Multiaddr, convert in code directly.
   bytes  key    = 3;
-  string weight = 4 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.VoteWeight"];
+  string weight = 4 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.VoteWeight"];
 }
 
 // ================================================================================
@@ -70,7 +70,7 @@ message NodeIdentity {
 message ClientProgress {
   option (mir.event) = true;
 
-  map<string, DeliveredTXs> progress = 1 [(mir.key_type) = "github.com/filecoin-project/mir/pkg/trantor/types.ClientID"];
+  map<string, DeliveredTXs> progress = 1 [(mir.key_type) = "github.com/matejpavlovic/mir/pkg/trantor/types.ClientID"];
 }
 
 message DeliveredTXs {

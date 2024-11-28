@@ -13,9 +13,9 @@ import (
 	"github.com/fxamacker/cbor/v2"
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/serializing"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/serializing"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type LeaderPolicyType uint64

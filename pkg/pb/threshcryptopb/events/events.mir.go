@@ -3,9 +3,9 @@
 package threshcryptopbevents
 
 import (
-	types1 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/threshcryptopb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/threshcryptopb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func SignShare(destModule stdtypes.ModuleID, data [][]uint8, origin *types.SignShareOrigin) *types1.Event {

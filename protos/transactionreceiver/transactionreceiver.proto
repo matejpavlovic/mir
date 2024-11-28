@@ -10,7 +10,7 @@ package receiver;
 
 import "trantorpb/trantorpb.proto";
 
-option go_package = "github.com/filecoin-project/mir/pkg/transactionreceiver";
+option go_package = "github.com/matejpavlovic/mir/pkg/transactionreceiver";
 
 service TransactionReceiver {
   rpc Listen(stream trantorpb.Transaction) returns(ByeBye);

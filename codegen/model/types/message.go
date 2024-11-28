@@ -8,8 +8,8 @@ import (
 	"github.com/dave/jennifer/jen"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/util/astutil"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/util/astutil"
 )
 
 // Message contains the information needed to generate code for a protobuf message.

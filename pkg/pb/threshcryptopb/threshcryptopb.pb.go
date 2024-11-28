@@ -7,9 +7,9 @@
 package threshcryptopb
 
 import (
-	contextstorepb "github.com/filecoin-project/mir/pkg/pb/contextstorepb"
-	dslpb "github.com/filecoin-project/mir/pkg/pb/dslpb"
-	_ "github.com/filecoin-project/mir/pkg/pb/mir"
+	contextstorepb "github.com/matejpavlovic/mir/pkg/pb/contextstorepb"
+	dslpb "github.com/matejpavlovic/mir/pkg/pb/dslpb"
+	_ "github.com/matejpavlovic/mir/pkg/pb/mir"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

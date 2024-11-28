@@ -3,7 +3,7 @@ package modules
 import (
 	"context"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The NullPassive module is a PassiveModule that ignores all incoming events.

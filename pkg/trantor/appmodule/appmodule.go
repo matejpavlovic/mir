@@ -3,20 +3,20 @@ package appmodule
 import (
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/net"
-	apppbdsl "github.com/filecoin-project/mir/pkg/pb/apppb/dsl"
-	bfpbdsl "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb/dsl"
-	checkpointpbdsl "github.com/filecoin-project/mir/pkg/pb/checkpointpb/dsl"
-	checkpointpbtypes "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	isspbdsl "github.com/filecoin-project/mir/pkg/pb/isspb/dsl"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/net"
+	apppbdsl "github.com/matejpavlovic/mir/pkg/pb/apppb/dsl"
+	bfpbdsl "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb/dsl"
+	checkpointpbdsl "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/dsl"
+	checkpointpbtypes "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	isspbdsl "github.com/matejpavlovic/mir/pkg/pb/isspb/dsl"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
 )
 
 // AppModule is the module within the SMR system that handles the application logic.
