@@ -63,13 +63,17 @@ func IncludeViewChange( //nolint:gocognit
 		return nil
 	})
 
-	cryptopbdsl.UponSigVerified(m, func(nodeID t.NodeID, error error, context *pbftpbtypes.SignedViewChange) error {
+	cryptopbdsl.UponSigVerified(m, func(
+		nodeID t.NodeID,
+		verificationError error,
+		context *pbftpbtypes.SignedViewChange,
+	) error {
 		// Ignore events with invalid signatures.
-		if error != nil {
+		if verificationError != nil {
 			logger.Log(logging.LevelWarn,
 				"Ignoring invalid signature, ignoring event.",
 				"from", nodeID,
-				"error", error,
+				"error", verificationError,
 			)
 			return nil
 		}
@@ -355,7 +359,7 @@ func applyViewChangeSNTimeout(
 	// If the view is still the same as when the timer was set up,
 	// if nothing has been committed since then, and if the segment-level checkpoint is not yet stable
 	if view == state.View &&
-		int(numCommitted) == state.NumCommitted(state.View) &&
+		numCommitted == state.NumCommitted(state.View) &&
 		!state.SegmentCheckpoint.Stable(state.Segment.Membership) {
 
 		// Start the view change sub-protocol.
@@ -694,7 +698,7 @@ func latestPendingVCState(state *common.State) (*common.PbftViewChangeState, ot.
 
 	// Find and return the view change state with the highest view number that received enough ViewChange messages.
 	for v, s := range state.ViewChangeStates {
-		if s.EnoughViewChanges() && (state == nil || v > view) {
+		if s.EnoughViewChanges() && v > view {
 			vcstate, view = s, v
 		}
 	}

@@ -198,7 +198,7 @@ func testIntegrationWithISS(tt *testing.T) {
 					require.Error(tb, conf.ErrorExpected)
 					for replica := range conf.NodeIDsWeight {
 						app := deployment.TestConfig.FakeApps[replica]
-						require.Equal(tb, 0, int(app.TransactionsProcessed))
+						require.Equal(tb, 0, int(app.TransactionsProcessed)) //nolint:gosec
 					}
 				},
 			}},
@@ -218,7 +218,7 @@ func testIntegrationWithISS(tt *testing.T) {
 					require.Error(tb, conf.ErrorExpected)
 					for replica := range conf.NodeIDsWeight {
 						app := deployment.TestConfig.FakeApps[replica]
-						require.Equal(tb, conf.NumNetTXs+conf.NumFakeTXs, int(app.TransactionsProcessed))
+						require.Equal(tb, conf.NumNetTXs+conf.NumFakeTXs, int(app.TransactionsProcessed)) //nolint:gosec
 					}
 				},
 			}},
@@ -379,7 +379,7 @@ func runIntegrationWithISSConfig(tb testing.TB, conf *TestConfig) (heapObjects i
 	// Check if all transactions were delivered.
 	for _, replica := range deployment.TestReplicas {
 		app := deployment.TestConfig.FakeApps[replica.ID]
-		assert.Equal(tb, conf.NumNetTXs+conf.NumFakeTXs, int(app.TransactionsProcessed))
+		assert.Equal(tb, conf.NumNetTXs+conf.NumFakeTXs, int(app.TransactionsProcessed)) //nolint:gosec
 	}
 
 	// If the test failed, keep the generated data.

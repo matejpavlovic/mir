@@ -1,6 +1,8 @@
 package common
 
 import (
+	"math"
+
 	es "github.com/go-errors/errors"
 
 	"github.com/filecoin-project/mir/pkg/orderers/types"
@@ -44,7 +46,10 @@ func (seg *Segment) NodeIDs() []t.NodeID {
 }
 
 func (seg *Segment) PrimaryNode(view types.ViewNr) t.NodeID {
-	return seg.NodeIDs()[(seg.LeaderIndex()+int(view))%len(seg.NodeIDs())]
+	if view > math.MaxInt {
+		panic("view number out of integer range")
+	}
+	return seg.NodeIDs()[(seg.LeaderIndex()+int(view))%len(seg.NodeIDs())] //nolint:gosec
 }
 
 func (seg *Segment) LeaderIndex() int {

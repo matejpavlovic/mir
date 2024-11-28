@@ -115,7 +115,7 @@ func runClient() error {
 			}
 			return err
 		}
-		rand.Read(txBytes) //nolint:gosec
+		rand.Read(txBytes) //nolint:gosec,staticcheck
 		logger.Log(logging.LevelDebug, fmt.Sprintf("Submitting transaction #%d", i))
 		if err := client.SubmitTransaction(txBytes); err != nil {
 			return err

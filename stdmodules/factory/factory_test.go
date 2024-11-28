@@ -102,7 +102,7 @@ func TestFactoryModule(t *testing.T) {
 		},
 
 		"02 Instantiate many": func(t *testing.T) {
-			for i := 1; i <= 5; i++ {
+			for i := uint64(1); i <= 5; i++ {
 				evOut, err := echoFactory.ApplyEvents(stdtypes.ListOf(stdevents.NewNewSubmodule(
 					echoFactoryID,
 					echoFactoryID.Then(stdtypes.ModuleID(fmt.Sprintf("inst%d", i))),

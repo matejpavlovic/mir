@@ -1,15 +1,16 @@
 package chkpvalidator
 
 import (
-	es "github.com/go-errors/errors"
+	"math"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	es "github.com/go-errors/errors"
 
 	"github.com/filecoin-project/mir/pkg/checkpoint"
 	"github.com/filecoin-project/mir/pkg/crypto"
 	checkpointpbtypes "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
 	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
 	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	t "github.com/filecoin-project/mir/stdtypes"
 )
 
 type ConservativeCV struct {
@@ -55,12 +56,23 @@ func (ccv *ConservativeCV) Verify(
 		return es.Errorf("nodeID not in membership")
 	}
 
+	// Check if epoch is in integer bounds.
+	if sc.Epoch() > math.MaxInt || epochNr > math.MaxInt {
+		return es.Errorf("epoch number out of integer range")
+	}
+
 	// Check how far the received stable checkpoint is ahead of the local node's state.
-	chkpMembershipOffset := int(sc.Epoch()) - 1 - int(epochNr)
+	// Integer casting required here to prevent underflow.
+	chkpMembershipOffset := int(sc.Epoch()) - 1 - int(epochNr) //nolint:gosec
 	if chkpMembershipOffset <= 0 {
 		// Ignore stable checkpoints that are not far enough
 		// ahead of the current state of the local node.
 		return es.Errorf("checkpoint not far ahead enough")
+	}
+
+	// Make sure ccv.configOffset is non-negative before conversion
+	if ccv.configOffset < 0 {
+		return es.Errorf("configOffset cannot be negative")
 	}
 
 	if chkpMembershipOffset > ccv.configOffset {

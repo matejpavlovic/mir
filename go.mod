@@ -23,6 +23,7 @@ require github.com/golang/mock v1.6.0
 
 require (
 	filippo.io/keygen v0.0.0-20230306160926-5201437acf8e
+	github.com/coder/websocket v1.8.12
 	github.com/dave/jennifer v1.5.1
 	github.com/drand/kyber v1.2.0
 	github.com/drand/kyber-bls12381 v0.3.0

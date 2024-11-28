@@ -179,8 +179,8 @@ func (d *Deployment) Run(ctx context.Context) (nodeErrors []error, heapObjects i
 		<-ctx.Done()
 		runtime.GC()
 		runtime.ReadMemStats(&m2)
-		heapObjects = int64(m2.HeapObjects - m1.HeapObjects)
-		heapAlloc = int64(m2.HeapAlloc - m1.HeapAlloc)
+		heapObjects = int64(m2.HeapObjects - m1.HeapObjects) //nolint:gosec
+		heapAlloc = int64(m2.HeapAlloc - m1.HeapAlloc)       //nolint:gosec
 		cancel()
 	}()
 

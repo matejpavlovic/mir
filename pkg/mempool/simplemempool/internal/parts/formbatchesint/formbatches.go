@@ -19,6 +19,9 @@
 package formbatchesint
 
 import (
+	"fmt"
+	"math"
+
 	"github.com/filecoin-project/mir/pkg/clientprogress"
 	"github.com/filecoin-project/mir/pkg/dsl"
 	"github.com/filecoin-project/mir/pkg/logging"
@@ -156,7 +159,7 @@ func IncludeBatchCreation( // nolint:gocognit
 			cutBatch(origin)
 		} else {
 			reqID := storePendingRequest(origin)
-			stddsl.TimerDelay(m, mc.Timer, params.BatchTimeout, mppbevents.BatchTimeout(mc.Self, uint64(reqID)).Pb())
+			stddsl.TimerDelay(m, mc.Timer, params.BatchTimeout, mppbevents.BatchTimeout(mc.Self, uint64(reqID)).Pb()) //nolint:gosec
 		}
 	}
 
@@ -266,6 +269,9 @@ func IncludeBatchCreation( // nolint:gocognit
 
 	mppbdsl.UponBatchTimeout(m, func(batchReqID uint64) error {
 
+		if batchReqID > math.MaxInt {
+			return fmt.Errorf("batch request ID too big for an integer: %d", batchReqID)
+		}
 		reqID := int(batchReqID)
 
 		// Load the request origin.

@@ -3,6 +3,7 @@ package mir
 import (
 	"context"
 	"fmt"
+	"math"
 	"sync"
 	"sync/atomic"
 	"testing"
@@ -140,7 +141,7 @@ func TestNode_Backpressure(t *testing.T) {
 	nodeConfig.Stats.Period = 100 * time.Millisecond
 
 	// Set an input event rate that would fill the node's event buffers in one second in 10 batches.
-	blabberModule := newBlabber(uint64(nodeConfig.PauseInputThreshold/10), 100*time.Millisecond)
+	blabberModule := newBlabber(uint64(nodeConfig.PauseInputThreshold/10), 100*time.Millisecond) //nolint:gosec
 
 	// Set the event consumption rate to 1/2 of the input rate (i.e., draining the buffer in 2 seconds)
 	// and create the consumer module.
@@ -181,8 +182,8 @@ func TestNode_Backpressure(t *testing.T) {
 	fmt.Printf("Total submitted events: %d\n", atomic.LoadUint64(&blabberModule.totalSubmitted))
 	totalSubmitted := atomic.LoadUint64(&blabberModule.totalSubmitted)
 	expectSubmitted := atomic.LoadUint64(&consumerModule.numProcessed) +
-		uint64(nodeConfig.PauseInputThreshold) + // Events left in the buffer
-		uint64(nodeConfig.MaxEventBatchSize) + // Events in the consumer's processing queue
+		uint64(nodeConfig.PauseInputThreshold) + //nolint:gosec // Events left in the buffer
+		uint64(nodeConfig.MaxEventBatchSize) + //nolint:gosec // Events in the consumer's processing queue
 		2*blabberModule.batchSize // one batch of overshooting, one batch waiting in the babbler's output channel.
 	assert.LessOrEqual(t, totalSubmitted, expectSubmitted, "too many events submitted (node event buffer overflow)")
 }
@@ -223,9 +224,12 @@ func (b *blabber) Go() {
 				return
 			default:
 			}
+			if b.batchSize > math.MaxInt {
+				panic("batch size too big for int")
+			}
 			evts := stdtypes.ListOf(sliceutil.Repeat(
 				stdtypes.Event(stdevents.NewTestUint64("consumer", 0)),
-				int(b.batchSize),
+				int(b.batchSize), //nolint:gosec
 			)...)
 			select {
 			case <-b.stop:

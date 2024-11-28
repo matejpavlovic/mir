@@ -162,16 +162,19 @@ func (h Handle) RecoverAndCleanupContext(id ContextID) any {
 // The ImplementsModule method only serves the purpose of indicating that this is a Module and must not be called.
 func (m *dslModuleImpl) ImplementsModule() {}
 
-// EmitEvent adds the event to the queue of output events
-// NB: This function works with the (legacy) protoc-generated types and is likely to be
-// removed in the future, with EmitMirEvent taking its place.
+// EmitEvent adds the event to the queue of output events.
 func EmitEvent(m Module, ev stdtypes.Event) {
 	m.DslHandle().impl.outputEvents.PushBack(ev)
 }
 
-// EmitMirEvent adds the event to the queue of output events
+// EmitEvents adds the events to the queue of output events.
+func EmitEvents(m Module, events *stdtypes.EventList) {
+	m.DslHandle().impl.outputEvents.PushBackList(events)
+}
+
+// EmitMirEvent adds the Mir-generated event to the queue of output events.
 // NB: this function works with the Mir-generated types.
-// For the (legacy) protoc-generated types, EmitEvent can be used.
+// For use with the general event type, see EmitEvent.
 func EmitMirEvent(m Module, ev *eventpbtypes.Event) {
 	m.DslHandle().impl.outputEvents.PushBack(ev.Pb())
 }

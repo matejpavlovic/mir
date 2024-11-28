@@ -2,6 +2,7 @@ package goodcase
 
 import (
 	"fmt"
+	"math"
 
 	es "github.com/go-errors/errors"
 	"google.golang.org/protobuf/proto"
@@ -119,6 +120,9 @@ func IncludeGoodCase(
 	})
 
 	pbftpbdsl.UponProposeTimeout(m, func(proposeTimeout uint64) error {
+		if proposeTimeout > math.MaxInt {
+			return es.Errorf("propose timeout too large (maximal allowed value: %d)", math.MaxInt)
+		}
 		return applyProposeTimeout(m, state, params, moduleConfig, int(proposeTimeout), logger)
 	})
 
@@ -255,7 +259,7 @@ func propose(
 	// Set up a new timer for the next proposal.
 	timeoutEvent := pbftpbevents.ProposeTimeout(
 		moduleConfig.Self,
-		uint64(state.Proposal.ProposalsMade+1))
+		uint64(state.Proposal.ProposalsMade+1)) //nolint:gosec
 
 	stddsl.TimerDelay(
 		m,
@@ -548,7 +552,7 @@ func advanceSlotState(
 				pbftpbevents.ViewChangeSNTimeout(
 					moduleConfig.Self,
 					state.View,
-					uint64(state.NumCommitted(state.View)),
+					state.NumCommitted(state.View),
 				).Pb(),
 			)
 		}
