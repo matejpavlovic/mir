@@ -8,7 +8,7 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
-	
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // MockModuleImpl is a mock of ModuleImpl interface.
