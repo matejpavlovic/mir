@@ -3,9 +3,9 @@
 package contextstorepbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	contextstorepb "github.com/filecoin-project/mir/pkg/pb/contextstorepb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	contextstorepb "github.com/matejpavlovic/mir/pkg/pb/contextstorepb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 type Origin struct {

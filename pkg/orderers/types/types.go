@@ -1,7 +1,7 @@
 package types
 
 import (
-	"github.com/filecoin-project/mir/pkg/serializing"
+	"github.com/matejpavlovic/mir/pkg/serializing"
 )
 
 // ViewNr represents the view number in the PBFT protocol (used as a sub-protocol of ISS)

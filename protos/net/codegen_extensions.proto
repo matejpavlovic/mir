@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package net;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/net";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/net";
 
 import "google/protobuf/descriptor.proto";
 

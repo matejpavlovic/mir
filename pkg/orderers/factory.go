@@ -3,14 +3,14 @@ package orderers
 import (
 	"fmt"
 
-	issconfig "github.com/filecoin-project/mir/pkg/iss/config"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/orderers/common"
-	ordererpbtypes "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/stdmodules/factory"
-	"github.com/filecoin-project/mir/stdtypes"
+	issconfig "github.com/matejpavlovic/mir/pkg/iss/config"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/orderers/common"
+	ordererpbtypes "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/stdmodules/factory"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Factory(

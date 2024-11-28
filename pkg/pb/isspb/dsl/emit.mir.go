@@ -3,12 +3,12 @@
 package isspbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types1 "github.com/filecoin-project/mir/pkg/pb/availabilitypb/types"
-	events "github.com/filecoin-project/mir/pkg/pb/isspb/events"
-	types2 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/types"
+	events "github.com/matejpavlovic/mir/pkg/pb/isspb/events"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

@@ -3,11 +3,11 @@
 package pprepvalidatorpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	events "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb/events"
-	types1 "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	events "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/events"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

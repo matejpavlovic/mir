@@ -6,14 +6,14 @@ import (
 	"os"
 	"time"
 
-	"github.com/filecoin-project/mir"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/net/grpc"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/samples/pingpong/customevents"
-	"github.com/filecoin-project/mir/stdmodules/timer"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/net/grpc"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/samples/pingpong/customevents"
+	"github.com/matejpavlovic/mir/stdmodules/timer"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func main() {

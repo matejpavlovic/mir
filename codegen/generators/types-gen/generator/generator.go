@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/codegen/util/buildutil"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/codegen/util/buildutil"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 type TypeGenerator struct{}

@@ -51,7 +51,7 @@ message Event {
     bcbpb.Event  bcb  = 28;
   }
 
-  string dest_module = 200 [(mir.type) = "github.com/filecoin-project/mir/pkg/types.ModuleID"];
+  string dest_module = 200 [(mir.type) = "github.com/matejpavlovic/mir/pkg/types.ModuleID"];
 }
 ```
 
@@ -106,7 +106,7 @@ message NodeSigsVerified {
   option (mir.event) = true;
 
   SigVerOrigin    origin   = 1 [(mir.origin_response) = true];
-  repeated string node_ids = 2 [(mir.type) = "github.com/filecoin-project/mir/pkg/types.NodeID"];
+  repeated string node_ids = 2 [(mir.type) = "github.com/matejpavlovic/mir/pkg/types.NodeID"];
   repeated bool   valid    = 3;
   repeated string errors   = 4 [(mir.type) = "error"];
   bool            all_ok   = 5;
@@ -141,22 +141,22 @@ func ErrorToString(err error) string {
  
 #### Customizing repeated and map types 
 When annotating repeated types, as shown in the previous example, the annotated type is assigned to the underlying type of the slice. 
-For example, the annotation `repeated string node_ids = 2 [(mir.type) = "github.com/filecoin-project/mir/pkg/types.NodeID"];` is represented as a slice of `types.NodeID` in the generated code. 
+For example, the annotation `repeated string node_ids = 2 [(mir.type) = "github.com/matejpavlovic/mir/pkg/types.NodeID"];` is represented as a slice of `types.NodeID` in the generated code. 
 
-At the moment of writing, it is not possible to annotate the slice itself. This means that in the above example, if we have a type alias in Go: `type NodeList []NodeID`, then we could not use the DSL to automatically convert a proto field directly into the NodeList type. This is a special inconvenience when annotating `bytes`, as they are actually treated as `repeated byte` proto fields and thus a slice of bytes cannot be currently annotated with a custom Go type, only the underlying byte type. This is a [known issue](https://github.com/filecoin-project/mir/issues/364) that is to be resolved soon.
+At the moment of writing, it is not possible to annotate the slice itself. This means that in the above example, if we have a type alias in Go: `type NodeList []NodeID`, then we could not use the DSL to automatically convert a proto field directly into the NodeList type. This is a special inconvenience when annotating `bytes`, as they are actually treated as `repeated byte` proto fields and thus a slice of bytes cannot be currently annotated with a custom Go type, only the underlying byte type. This is a [known issue](https://github.com/matejpavlovic/mir/issues/364) that is to be resolved soon.
 
 As for maps, the annotations `mir.key_type` and `mir.value_type` should be used instead of `mir.type`, which allows annotating either the key type or the value type. 
 Example:
 ```protobuf
   [...]
-  map<string, string> membership = 2 [(mir.key_type) = "github.com/filecoin-project/mir/pkg/types.NodeID",
-  				      (mir.key_type) = "github.com/filecoin-project/mir/pkg/types.NodeIP"];
+  map<string, string> membership = 2 [(mir.key_type) = "github.com/matejpavlovic/mir/pkg/types.NodeID",
+  				      (mir.key_type) = "github.com/matejpavlovic/mir/pkg/types.NodeIP"];
   [...]
 ```
 Here, the `map<string,string> membership` will be represented as a map with key types `types.NodeID` and value types `types.NodeIP` the generated code instead of `string`. If only the `mir.key_type` was provided: 
 ```protobuf
   [...]
-  map<string, string> membership = 2 [(mir.key_type) = "github.com/filecoin-project/mir/pkg/types.NodeID"];
+  map<string, string> membership = 2 [(mir.key_type) = "github.com/matejpavlovic/mir/pkg/types.NodeID"];
   [...]
 ```
 Then the generated code will represent this proto field as a map with key types `types.NodeID` and value types `string`. The same occurs if only the value type was provided. Currently, passing `mir.type` to map types results in an error. Same as with slices, the outer map type cannot currently be directly annotated.
@@ -208,9 +208,9 @@ The following order is important to avoid circular dependencies (the examples ar
     //go:generate -command std-gen ../codegen/generators/mir-std-gen/mir-std-gen.bin
     
     // Generate the Mir-generated code for events and messages.
-    //go:generate std-gen "github.com/filecoin-project/mir/pkg/pb/eventpb"
-    //go:generate std-gen "github.com/filecoin-project/mir/pkg/pb/messagepb"
-    //go:generate std-gen "github.com/filecoin-project/mir/pkg/pb/bcbpb"
+    //go:generate std-gen "github.com/matejpavlovic/mir/pkg/pb/eventpb"
+    //go:generate std-gen "github.com/matejpavlovic/mir/pkg/pb/messagepb"
+    //go:generate std-gen "github.com/matejpavlovic/mir/pkg/pb/bcbpb"
     //...
     ```
 
@@ -261,7 +261,7 @@ Specifically, for each protobuf message marked with one of the standard Mir anno
 message RequestCertOrigin {
   option (mir.struct) = true;
 
-  string module = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/types.ModuleID"];
+  string module = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/types.ModuleID"];
   oneof type {
     contextstorepb.Origin context_store = 2;
     dslpb.Origin          dsl           = 3;
@@ -345,7 +345,7 @@ The remaining two parts of the model are located in `codegen/model/events` and `
 
 #### Dependencies
 
-`github.com/filecoin-project/mir/codegen` -- the parser uses the functions to inspect annotations.
+`github.com/matejpavlovic/mir/codegen` -- the parser uses the functions to inspect annotations.
 
 ### Generating the code
 
@@ -355,7 +355,7 @@ The code generation is done with the help of [jennifer](https://github.com/dave/
 
 #### Dependencies
 
-`github.com/filecoin-project/mir/codegen/model`
+`github.com/matejpavlovic/mir/codegen/model`
 
 ## Standard code generators
 

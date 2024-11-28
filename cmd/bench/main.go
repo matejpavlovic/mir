@@ -4,7 +4,7 @@
 
 package main
 
-import "github.com/filecoin-project/mir/cmd/bench/cmd"
+import "github.com/matejpavlovic/mir/cmd/bench/cmd"
 
 func main() {
 	cmd.Execute()

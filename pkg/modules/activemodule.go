@@ -3,7 +3,7 @@ package modules
 import (
 	"context"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ActiveModule interface {

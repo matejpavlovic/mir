@@ -3,15 +3,15 @@
 package checkpointpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types3 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	dsl1 "github.com/filecoin-project/mir/pkg/pb/isspb/dsl"
-	types2 "github.com/filecoin-project/mir/pkg/pb/isspb/types"
-	dsl2 "github.com/filecoin-project/mir/pkg/pb/messagepb/dsl"
-	types4 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	dsl1 "github.com/matejpavlovic/mir/pkg/pb/isspb/dsl"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/isspb/types"
+	dsl2 "github.com/matejpavlovic/mir/pkg/pb/messagepb/dsl"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for processing net messages.

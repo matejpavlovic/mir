@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ==============================================================================================================

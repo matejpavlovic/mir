@@ -3,14 +3,14 @@
 package ordererpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types3 "github.com/filecoin-project/mir/codegen/model/types"
-	ordererpb "github.com/filecoin-project/mir/pkg/pb/ordererpb"
-	types "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/trantor/types"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types3 "github.com/matejpavlovic/mir/codegen/model/types"
+	ordererpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb"
+	types "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

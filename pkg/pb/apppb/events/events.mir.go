@@ -3,11 +3,11 @@
 package apppbevents
 
 import (
-	types1 "github.com/filecoin-project/mir/pkg/pb/apppb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types3 "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/apppb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func SnapshotRequest(destModule stdtypes.ModuleID, replyTo stdtypes.ModuleID) *types.Event {

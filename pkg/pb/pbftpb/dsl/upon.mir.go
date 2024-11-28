@@ -3,11 +3,11 @@
 package pbftpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types2 "github.com/filecoin-project/mir/pkg/orderers/types"
-	dsl1 "github.com/filecoin-project/mir/pkg/pb/ordererpb/dsl"
-	types1 "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types2 "github.com/matejpavlovic/mir/pkg/orderers/types"
+	dsl1 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/dsl"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
 )
 
 // Module-specific dsl functions for processing events.

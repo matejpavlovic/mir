@@ -2,7 +2,7 @@
 
 package ordererpb
 
-import pbftpb "github.com/filecoin-project/mir/pkg/pb/pbftpb"
+import pbftpb "github.com/matejpavlovic/mir/pkg/pb/pbftpb"
 
 type Event_Type = isEvent_Type
 

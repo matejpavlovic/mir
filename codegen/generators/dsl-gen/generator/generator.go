@@ -8,10 +8,10 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	eventsgenerator "github.com/filecoin-project/mir/codegen/generators/events-gen/generator"
-	netgenerator "github.com/filecoin-project/mir/codegen/generators/net-gen/generator"
-	"github.com/filecoin-project/mir/codegen/model/events"
-	"github.com/filecoin-project/mir/codegen/model/messages"
+	eventsgenerator "github.com/matejpavlovic/mir/codegen/generators/events-gen/generator"
+	netgenerator "github.com/matejpavlovic/mir/codegen/generators/net-gen/generator"
+	"github.com/matejpavlovic/mir/codegen/model/events"
+	"github.com/matejpavlovic/mir/codegen/model/messages"
 )
 
 const (
@@ -77,7 +77,7 @@ func DslOutputDir(sourceDir string) string {
 
 var (
 	// Note: using reflection to determine this package path would cause a build dependency cycle.
-	dslPackagePath = "github.com/filecoin-project/mir/pkg/dsl"
+	dslPackagePath = "github.com/matejpavlovic/mir/pkg/dsl"
 
 	dslModule       jen.Code = jen.Qual(dslPackagePath, "Module")
 	dslContextID    jen.Code = jen.Qual(dslPackagePath, "ContextID")

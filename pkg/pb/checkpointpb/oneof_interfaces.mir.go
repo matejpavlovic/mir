@@ -2,7 +2,7 @@
 
 package checkpointpb
 
-import trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
+import trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
 
 type Message_Type = isMessage_Type
 

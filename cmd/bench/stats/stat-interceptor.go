@@ -5,11 +5,11 @@
 package stats
 
 import (
-	bfpb "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/mempoolpb"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/stdtypes"
+	bfpb "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/mempoolpb"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type StatInterceptor struct {

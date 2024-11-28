@@ -1,9 +1,9 @@
 package clientprogress
 
 import (
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/pb/trantorpb"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/pb/trantorpb"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // ClientProgress tracks watermarks for all the clients.

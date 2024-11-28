@@ -14,16 +14,16 @@ import (
 	"google.golang.org/grpc/peer"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	mirnet "github.com/filecoin-project/mir/pkg/net"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/messagepb"
-	messagepbtypes "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	transportpbevents "github.com/filecoin-project/mir/pkg/pb/transportpb/events"
-	transportpbtypes "github.com/filecoin-project/mir/pkg/pb/transportpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	mirnet "github.com/matejpavlovic/mir/pkg/net"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	messagepbtypes "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	transportpbevents "github.com/matejpavlovic/mir/pkg/pb/transportpb/events"
+	transportpbtypes "github.com/matejpavlovic/mir/pkg/pb/transportpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type TransportMessage struct {

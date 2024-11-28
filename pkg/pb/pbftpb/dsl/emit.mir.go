@@ -3,10 +3,10 @@
 package pbftpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types "github.com/filecoin-project/mir/pkg/orderers/types"
-	events "github.com/filecoin-project/mir/pkg/pb/pbftpb/events"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types "github.com/matejpavlovic/mir/pkg/orderers/types"
+	events "github.com/matejpavlovic/mir/pkg/pb/pbftpb/events"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

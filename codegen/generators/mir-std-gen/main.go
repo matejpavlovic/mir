@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/generators/mir-std-gen/generator"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/generators/mir-std-gen/generator"
 )
 
 func main() {

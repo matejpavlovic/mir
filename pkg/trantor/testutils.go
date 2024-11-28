@@ -1,8 +1,8 @@
 package trantor
 
 import (
-	"github.com/filecoin-project/mir/pkg/eventmangler"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/eventmangler"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // PerturbMessages configures the SMR system to randomly drop and delay some of the messages sent over the network.

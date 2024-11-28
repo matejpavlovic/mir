@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	ppdsl "github.com/filecoin-project/mir/pkg/pb/pingpongpb/dsl"
-	"github.com/filecoin-project/mir/samples/pingpong/customevents/pingpongevents"
-	"github.com/filecoin-project/mir/stdevents"
-	stddsl "github.com/filecoin-project/mir/stdevents/dsl"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	ppdsl "github.com/matejpavlovic/mir/pkg/pb/pingpongpb/dsl"
+	"github.com/matejpavlovic/mir/samples/pingpong/customevents/pingpongevents"
+	"github.com/matejpavlovic/mir/stdevents"
+	stddsl "github.com/matejpavlovic/mir/stdevents/dsl"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func NewPingPong(ownNodeID t.NodeID) modules.PassiveModule {

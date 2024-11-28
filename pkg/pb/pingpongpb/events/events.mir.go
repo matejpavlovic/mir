@@ -3,9 +3,9 @@
 package pingpongpbevents
 
 import (
-	types "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/pingpongpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/pingpongpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func PingTime(destModule stdtypes.ModuleID) *types.Event {

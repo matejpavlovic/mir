@@ -3,9 +3,9 @@
 package bcbpbevents
 
 import (
-	types1 "github.com/filecoin-project/mir/pkg/pb/bcbpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/bcbpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func BroadcastRequest(destModule stdtypes.ModuleID, data []uint8) *types.Event {

@@ -1,11 +1,11 @@
 package common
 
 import (
-	msctypes "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	cryptopbtypes "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	msctypes "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	cryptopbtypes "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // InstanceUID is used to uniquely identify an instance of multisig collector.

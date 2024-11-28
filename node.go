@@ -14,12 +14,12 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/eventlog"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/eventlog"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 var ErrStopped = fmt.Errorf("stopped at caller request")

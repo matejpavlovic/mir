@@ -1,10 +1,10 @@
 package checkpoint
 
 import (
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/stdmodules/factory"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/stdmodules/factory"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Factory(mc ModuleConfig, logger logging.Logger) modules.PassiveModule {

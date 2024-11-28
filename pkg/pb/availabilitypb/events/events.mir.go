@@ -3,10 +3,10 @@
 package availabilitypbevents
 
 import (
-	types "github.com/filecoin-project/mir/pkg/pb/availabilitypb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func RequestCert(destModule stdtypes.ModuleID, origin *types.RequestCertOrigin) *types1.Event {

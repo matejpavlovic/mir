@@ -9,9 +9,9 @@ SPDX-License-Identifier: Apache-2.0
 package common
 
 import (
-	cryptopbtypes "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	hasherpbtypes "github.com/filecoin-project/mir/pkg/pb/hasherpb/types"
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
+	cryptopbtypes "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	hasherpbtypes "github.com/matejpavlovic/mir/pkg/pb/hasherpb/types"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
 )
 
 // ============================================================

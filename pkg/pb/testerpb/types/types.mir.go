@@ -3,9 +3,9 @@
 package testerpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	testerpb "github.com/filecoin-project/mir/pkg/pb/testerpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	testerpb "github.com/matejpavlovic/mir/pkg/pb/testerpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 type Tester struct{}

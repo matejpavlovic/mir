@@ -3,11 +3,11 @@
 package bcbpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types "github.com/filecoin-project/mir/pkg/pb/bcbpb/types"
-	dsl1 "github.com/filecoin-project/mir/pkg/pb/messagepb/dsl"
-	types1 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types "github.com/matejpavlovic/mir/pkg/pb/bcbpb/types"
+	dsl1 "github.com/matejpavlovic/mir/pkg/pb/messagepb/dsl"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for processing net messages.

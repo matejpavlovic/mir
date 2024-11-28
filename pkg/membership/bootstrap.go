@@ -10,10 +10,10 @@ import (
 	"github.com/multiformats/go-multiaddr"
 	manet "github.com/multiformats/go-multiaddr/net"
 
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	t "github.com/filecoin-project/mir/stdtypes"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func FromFileName(fileName string) (*trantorpbtypes.Membership, error) {

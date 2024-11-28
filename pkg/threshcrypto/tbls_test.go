@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func TestTBLSHappySmoke(t *testing.T) {

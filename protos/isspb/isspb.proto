@@ -8,7 +8,7 @@ syntax = "proto3";
 
 package isspb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/isspb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/isspb";
 
 import "trantorpb/trantorpb.proto";
 import "checkpointpb/checkpointpb.proto";
@@ -55,17 +55,17 @@ message PushCheckpoint {
 message SBDeliver {
   option (mir.event) = true;
 
-  uint64 sn          = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.SeqNr"];
+  uint64 sn          = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.SeqNr"];
   bytes  data        = 2;
   bool   aborted     = 3;
-  string leader      = 4 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
-  string instance_id = 5 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.ModuleID"];
+  string leader      = 4 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
+  string instance_id = 5 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.ModuleID"];
 }
 
 message DeliverCert {
   option (mir.event) = true;
 
-  uint64              sn    = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.SeqNr"];
+  uint64              sn    = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.SeqNr"];
   availabilitypb.Cert cert  = 2;
   bool                empty = 3;
 }
@@ -73,7 +73,7 @@ message DeliverCert {
 message NewConfig {
   option (mir.event) = true;
 
-  uint64               epoch_nr   = 1 [(mir.type) = "github.com/filecoin-project/mir/pkg/trantor/types.EpochNr"];
+  uint64               epoch_nr   = 1 [(mir.type) = "github.com/matejpavlovic/mir/pkg/trantor/types.EpochNr"];
   trantorpb.Membership membership = 2;
 }
 

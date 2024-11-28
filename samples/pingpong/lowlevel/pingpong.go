@@ -7,15 +7,15 @@ import (
 	es "github.com/go-errors/errors"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/messagepb"
-	messagepbtypes "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	"github.com/filecoin-project/mir/pkg/pb/pingpongpb"
-	"github.com/filecoin-project/mir/pkg/pb/transportpb"
-	transportpbevents "github.com/filecoin-project/mir/pkg/pb/transportpb/events"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	messagepbtypes "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	"github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
+	"github.com/matejpavlovic/mir/pkg/pb/transportpb"
+	transportpbevents "github.com/matejpavlovic/mir/pkg/pb/transportpb/events"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Pingpong struct {

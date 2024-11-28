@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package contextstorepb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/contextstorepb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/contextstorepb";
 
 import "mir/codegen_extensions.proto";
 

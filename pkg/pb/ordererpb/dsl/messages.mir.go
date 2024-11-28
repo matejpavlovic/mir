@@ -3,11 +3,11 @@
 package ordererpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	dsl1 "github.com/filecoin-project/mir/pkg/pb/messagepb/dsl"
-	types1 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	dsl1 "github.com/matejpavlovic/mir/pkg/pb/messagepb/dsl"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for processing net messages.

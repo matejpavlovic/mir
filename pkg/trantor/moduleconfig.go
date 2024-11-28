@@ -1,16 +1,16 @@
 package trantor
 
 import (
-	"github.com/filecoin-project/mir/pkg/availability/batchdb/fakebatchdb"
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector"
-	"github.com/filecoin-project/mir/pkg/batchfetcher"
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/checkpoint/chkpvalidator"
-	"github.com/filecoin-project/mir/pkg/iss"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool"
-	ordererscommon "github.com/filecoin-project/mir/pkg/orderers/common"
-	"github.com/filecoin-project/mir/pkg/orderers/common/pprepvalidator"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/availability/batchdb/fakebatchdb"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector"
+	"github.com/matejpavlovic/mir/pkg/batchfetcher"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/checkpoint/chkpvalidator"
+	"github.com/matejpavlovic/mir/pkg/iss"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool"
+	ordererscommon "github.com/matejpavlovic/mir/pkg/orderers/common"
+	"github.com/matejpavlovic/mir/pkg/orderers/common/pprepvalidator"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ModuleConfig struct {

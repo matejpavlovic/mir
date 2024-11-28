@@ -1,7 +1,7 @@
 package batchfetcher
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig determines the IDs of the modules the batch fetcher interacts with.

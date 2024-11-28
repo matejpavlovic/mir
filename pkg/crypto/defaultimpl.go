@@ -22,7 +22,7 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // DefaultImpl represents a generic implementation of the MirModule module that can be used at Node instantiation

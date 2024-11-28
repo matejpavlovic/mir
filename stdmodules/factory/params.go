@@ -1,8 +1,8 @@
 package factory
 
 import (
-	"github.com/filecoin-project/mir/pkg/modules"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 const (

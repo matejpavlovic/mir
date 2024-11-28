@@ -6,17 +6,17 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	ot "github.com/filecoin-project/mir/pkg/orderers/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
+	ot "github.com/matejpavlovic/mir/pkg/orderers/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	hasherpbtypes "github.com/filecoin-project/mir/pkg/pb/hasherpb/types"
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	hasherpbtypes "github.com/matejpavlovic/mir/pkg/pb/hasherpb/types"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 // PbftViewChangeState tracks the state of the view change sub-protocol in PBFT.

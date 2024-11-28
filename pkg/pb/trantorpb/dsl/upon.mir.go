@@ -3,13 +3,13 @@
 package trantorpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	dsl1 "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb/dsl"
-	types2 "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb/types"
-	dsl2 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/dsl"
-	types3 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	dsl1 "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb/dsl"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb/types"
+	dsl2 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/dsl"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // Module-specific dsl functions for processing events.

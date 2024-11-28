@@ -3,15 +3,15 @@
 package pprepvalidatorpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types1 "github.com/filecoin-project/mir/codegen/model/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/contextstorepb/types"
-	types3 "github.com/filecoin-project/mir/pkg/pb/dslpb/types"
-	pprepvalidatorpb "github.com/filecoin-project/mir/pkg/pb/ordererpb/pprepvalidatorpb"
-	types "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	types4 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types1 "github.com/matejpavlovic/mir/codegen/model/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/contextstorepb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/dslpb/types"
+	pprepvalidatorpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb"
+	types "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

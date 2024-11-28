@@ -5,13 +5,13 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	cs "github.com/filecoin-project/mir/pkg/contextstore"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	eventpbtypes "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	"github.com/filecoin-project/mir/pkg/util/reflectutil"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	cs "github.com/matejpavlovic/mir/pkg/contextstore"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	eventpbtypes "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	"github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type dslModuleImpl struct {

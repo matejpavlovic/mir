@@ -1,10 +1,10 @@
 package lowlevel
 
 import (
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/messagepb"
-	"github.com/filecoin-project/mir/pkg/pb/pingpongpb"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	"github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Message(destModule t.ModuleID, message *pingpongpb.Message) *messagepb.Message {

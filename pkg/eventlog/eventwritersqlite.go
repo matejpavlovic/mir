@@ -8,9 +8,9 @@ import (
 	_ "github.com/mattn/go-sqlite3" // Driver for the sql database
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 const (

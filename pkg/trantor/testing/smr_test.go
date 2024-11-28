@@ -11,12 +11,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/eventmangler"
-	"github.com/filecoin-project/mir/pkg/net/grpc"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/eventmangler"
+	"github.com/matejpavlovic/mir/pkg/net/grpc"
+	"github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 
 	es "github.com/go-errors/errors"
 	"github.com/otiai10/copy"
@@ -24,17 +24,17 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/goleak"
 
-	"github.com/filecoin-project/mir"
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector"
-	"github.com/filecoin-project/mir/pkg/checkpoint"
-	"github.com/filecoin-project/mir/pkg/deploytest"
-	"github.com/filecoin-project/mir/pkg/iss"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/testsim"
-	"github.com/filecoin-project/mir/pkg/trantor"
-	"github.com/filecoin-project/mir/pkg/trantor/appmodule"
+	"github.com/matejpavlovic/mir"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector"
+	"github.com/matejpavlovic/mir/pkg/checkpoint"
+	"github.com/matejpavlovic/mir/pkg/deploytest"
+	"github.com/matejpavlovic/mir/pkg/iss"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/testsim"
+	"github.com/matejpavlovic/mir/pkg/trantor"
+	"github.com/matejpavlovic/mir/pkg/trantor/appmodule"
 )
 
 const (
@@ -44,8 +44,8 @@ const (
 
 func TestIntegration(t *testing.T) {
 	defer goleak.VerifyNone(t,
-		goleak.IgnoreTopFunction("github.com/filecoin-project/mir/pkg/deploytest.newSimModule"),
-		goleak.IgnoreTopFunction("github.com/filecoin-project/mir/pkg/testsim.(*Chan).recv"),
+		goleak.IgnoreTopFunction("github.com/matejpavlovic/mir/pkg/deploytest.newSimModule"),
+		goleak.IgnoreTopFunction("github.com/matejpavlovic/mir/pkg/testsim.(*Chan).recv"),
 
 		// If an observable is not exhausted when checking an event trace...
 		goleak.IgnoreTopFunction("github.com/reactivex/rxgo/v2.Item.SendContext"),

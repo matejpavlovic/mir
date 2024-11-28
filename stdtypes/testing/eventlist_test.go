@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func TestEventList_Constructors(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/logging"
 )
 
 type testLogEntry struct {

@@ -1,6 +1,6 @@
 package pprepvalidator
 
-import pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
+import pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
 
 // PreprepareValidator is the interface of an external checker of validity of proposed data.
 type PreprepareValidator interface {

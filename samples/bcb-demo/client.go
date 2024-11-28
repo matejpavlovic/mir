@@ -8,16 +8,16 @@ import (
 	es "github.com/go-errors/errors"
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir"
-	"github.com/filecoin-project/mir/pkg/bcb"
-	mirCrypto "github.com/filecoin-project/mir/pkg/crypto"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/pkg/net/grpc"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	grpctools "github.com/filecoin-project/mir/pkg/util/grpc"
+	"github.com/matejpavlovic/mir"
+	"github.com/matejpavlovic/mir/pkg/bcb"
+	mirCrypto "github.com/matejpavlovic/mir/pkg/crypto"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/pkg/net/grpc"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	grpctools "github.com/matejpavlovic/mir/pkg/util/grpc"
 )
 
 const (

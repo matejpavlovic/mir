@@ -3,17 +3,17 @@
 package batchdbpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types2 "github.com/filecoin-project/mir/codegen/model/types"
-	types "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	batchdbpb "github.com/filecoin-project/mir/pkg/pb/availabilitypb/batchdbpb"
-	types4 "github.com/filecoin-project/mir/pkg/pb/contextstorepb/types"
-	types5 "github.com/filecoin-project/mir/pkg/pb/dslpb/types"
-	trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types3 "github.com/filecoin-project/mir/pkg/trantor/types"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types2 "github.com/matejpavlovic/mir/codegen/model/types"
+	types "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	batchdbpb "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/batchdbpb"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/contextstorepb/types"
+	types5 "github.com/matejpavlovic/mir/pkg/pb/dslpb/types"
+	trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

@@ -14,20 +14,20 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/net"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/messagepb"
-	messagepbtypes "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	transportpbevents "github.com/filecoin-project/mir/pkg/pb/transportpb/events"
-	transportpbtypes "github.com/filecoin-project/mir/pkg/pb/transportpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/net"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/messagepb"
+	messagepbtypes "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	transportpbevents "github.com/matejpavlovic/mir/pkg/pb/transportpb/events"
+	transportpbtypes "github.com/matejpavlovic/mir/pkg/pb/transportpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
 )
 
 type FakeLink struct {

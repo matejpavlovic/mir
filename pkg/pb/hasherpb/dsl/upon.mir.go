@@ -3,9 +3,9 @@
 package hasherpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types1 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	types "github.com/filecoin-project/mir/pkg/pb/hasherpb/types"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	types "github.com/matejpavlovic/mir/pkg/pb/hasherpb/types"
 )
 
 // Module-specific dsl functions for processing events.

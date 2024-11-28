@@ -5,9 +5,9 @@ package pingpongevents
 import (
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/stdevents"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/stdevents"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func UponGRPCMessage[M any](m dsl.Module, handler func(msg *M, from t.NodeID) error) {

@@ -3,8 +3,8 @@ package common
 import (
 	"time"
 
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // PBFTConfig holds PBFT-specific configuration parameters used by a concrete instance of PBFT.

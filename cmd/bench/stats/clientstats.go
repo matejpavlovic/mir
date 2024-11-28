@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 type ClientStats struct {

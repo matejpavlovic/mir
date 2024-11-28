@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pingpongpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/pingpongpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/pingpongpb";
 
 import "mir/codegen_extensions.proto";
 import "net/codegen_extensions.proto";

@@ -2,7 +2,7 @@
 
 package batchfetcherpb
 
-import trantorpb "github.com/filecoin-project/mir/pkg/pb/trantorpb"
+import trantorpb "github.com/matejpavlovic/mir/pkg/pb/trantorpb"
 
 type Event_Type = isEvent_Type
 

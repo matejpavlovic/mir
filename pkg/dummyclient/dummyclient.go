@@ -16,12 +16,12 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/transactionreceiver"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/transactionreceiver"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 const (

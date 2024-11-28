@@ -1,6 +1,6 @@
 package events
 
-import "github.com/filecoin-project/mir/codegen/model/types"
+import "github.com/matejpavlovic/mir/codegen/model/types"
 
 // Origin represents a field marked with [(mir.origin_request) = true] or [(mir.origin_response) = true].
 // The field must be of a message type with a field "Module" and a oneof "Type".

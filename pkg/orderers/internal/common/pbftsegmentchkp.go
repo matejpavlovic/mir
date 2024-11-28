@@ -1,11 +1,11 @@
 package common
 
 import (
-	"github.com/filecoin-project/mir/pkg/orderers/common"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types2 "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/orderers/common"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // PbftSegmentChkp groups data structures pertaining to an instance-local checkpoint

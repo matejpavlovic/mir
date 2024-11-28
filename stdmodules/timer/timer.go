@@ -7,8 +7,8 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The Timer module abstracts the passage of real time.

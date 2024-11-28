@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 type element[K comparable, V any] struct {

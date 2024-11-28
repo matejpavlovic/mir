@@ -3,12 +3,12 @@
 package pbftpbmsgs
 
 import (
-	types1 "github.com/filecoin-project/mir/pkg/orderers/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types3 "github.com/filecoin-project/mir/pkg/pb/ordererpb/types"
-	types4 "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types1 "github.com/matejpavlovic/mir/pkg/orderers/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Preprepare(destModule stdtypes.ModuleID, sn types.SeqNr, view types1.ViewNr, data []uint8, aborted bool) *types2.Message {

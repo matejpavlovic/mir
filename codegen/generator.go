@@ -18,9 +18,9 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/filecoin-project/mir/codegen/util/astutil"
-	"github.com/filecoin-project/mir/codegen/util/buildutil"
-	"github.com/filecoin-project/mir/pkg/util/reflectutil"
+	"github.com/matejpavlovic/mir/codegen/util/astutil"
+	"github.com/matejpavlovic/mir/codegen/util/buildutil"
+	"github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 // Generator receives a list of all struct types exported by a package as input and produces the generated code.

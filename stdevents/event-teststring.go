@@ -4,7 +4,7 @@ package stdevents
 import (
 	"fmt"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // TODO: Make this generic in the form of TestValue[T any] (or some subset of any)

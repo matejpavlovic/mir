@@ -3,12 +3,12 @@
 package checkpointpbmsgs
 
 import (
-	types4 "github.com/filecoin-project/mir/pkg/pb/checkpointpb/types"
-	types3 "github.com/filecoin-project/mir/pkg/pb/isspb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	types "github.com/filecoin-project/mir/pkg/trantor/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types4 "github.com/matejpavlovic/mir/pkg/pb/checkpointpb/types"
+	types3 "github.com/matejpavlovic/mir/pkg/pb/isspb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	types "github.com/matejpavlovic/mir/pkg/trantor/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func StableCheckpoint(destModule stdtypes.ModuleID, sn types.SeqNr, snapshot *types1.StateSnapshot, cert map[stdtypes.NodeID][]uint8) *types2.Message {

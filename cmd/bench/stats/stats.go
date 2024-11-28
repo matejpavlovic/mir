@@ -1,6 +1,6 @@
 package stats
 
-import trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
+import trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
 
 type Tracker interface {
 	Submit(tx *trantorpbtypes.Transaction)

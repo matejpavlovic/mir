@@ -3,9 +3,9 @@
 package pingpongpbmsgs
 
 import (
-	types "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/pingpongpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/pingpongpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Ping(destModule stdtypes.ModuleID, seqNr uint64) *types.Message {

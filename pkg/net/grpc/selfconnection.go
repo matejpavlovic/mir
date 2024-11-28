@@ -3,10 +3,10 @@ package grpc
 import (
 	es "github.com/go-errors/errors"
 
-	messagepbtypes "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	transportpbevents "github.com/filecoin-project/mir/pkg/pb/transportpb/events"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	messagepbtypes "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	transportpbevents "github.com/matejpavlovic/mir/pkg/pb/transportpb/events"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // selfConnection represents a connection of a node to itself.

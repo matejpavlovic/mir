@@ -1,9 +1,9 @@
 package events
 
 import (
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	pb "github.com/filecoin-project/mir/pkg/pb/threshcryptopb"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	pb "github.com/matejpavlovic/mir/pkg/pb/threshcryptopb"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // SignShare returns an event representing a request to the threshcrypto module for computing the signature share over data.

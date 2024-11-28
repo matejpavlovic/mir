@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/filecoin-project/mir/pkg/serializing"
+	"github.com/matejpavlovic/mir/pkg/serializing"
 )
 
 // ================================================================================

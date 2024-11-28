@@ -1,7 +1,7 @@
 package internal
 
 import (
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type ModuleImpl interface {

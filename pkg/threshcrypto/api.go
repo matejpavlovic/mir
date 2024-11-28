@@ -1,7 +1,7 @@
 package threshcrypto
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The ThreshCrypto interface represents an implementation of threshold cryptography primitives inside the MirModule module.

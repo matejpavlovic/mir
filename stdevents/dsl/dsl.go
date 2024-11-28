@@ -3,9 +3,9 @@ package dsl
 import (
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 func GarbageCollect(

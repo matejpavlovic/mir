@@ -8,9 +8,9 @@ import (
 
 	"github.com/coder/websocket"
 
-	"github.com/filecoin-project/mir/pkg/modules"
-	"github.com/filecoin-project/mir/stdevents"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 const (

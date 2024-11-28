@@ -3,10 +3,10 @@
 package transportpbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	types "github.com/filecoin-project/mir/pkg/pb/messagepb/types"
-	events "github.com/filecoin-project/mir/pkg/pb/transportpb/events"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	types "github.com/matejpavlovic/mir/pkg/pb/messagepb/types"
+	events "github.com/matejpavlovic/mir/pkg/pb/transportpb/events"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

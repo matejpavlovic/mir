@@ -3,12 +3,12 @@ package common
 import (
 	"bytes"
 
-	ot "github.com/filecoin-project/mir/pkg/orderers/types"
-	pbftpbtypes "github.com/filecoin-project/mir/pkg/pb/pbftpb/types"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
-	t "github.com/filecoin-project/mir/stdtypes"
+	ot "github.com/matejpavlovic/mir/pkg/orderers/types"
+	pbftpbtypes "github.com/matejpavlovic/mir/pkg/pb/pbftpb/types"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // PbftSlot tracks the state of the agreement protocol for one sequence number,

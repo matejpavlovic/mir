@@ -12,12 +12,12 @@ import (
 	"github.com/tidwall/sjson"
 	"gopkg.in/yaml.v3"
 
-	"github.com/filecoin-project/mir/cmd/bench/localtxgenerator"
-	"github.com/filecoin-project/mir/cmd/bench/parameterset"
-	issconfig "github.com/filecoin-project/mir/pkg/iss/config"
-	"github.com/filecoin-project/mir/pkg/membership"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/trantor"
+	"github.com/matejpavlovic/mir/cmd/bench/localtxgenerator"
+	"github.com/matejpavlovic/mir/cmd/bench/parameterset"
+	issconfig "github.com/matejpavlovic/mir/pkg/iss/config"
+	"github.com/matejpavlovic/mir/pkg/membership"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/trantor"
 )
 
 const (

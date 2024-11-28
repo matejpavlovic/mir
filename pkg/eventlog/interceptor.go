@@ -1,7 +1,7 @@
 package eventlog
 
 import (
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Interceptor provides a way to gain insight into the internal operation of the node.

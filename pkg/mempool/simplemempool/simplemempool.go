@@ -3,17 +3,17 @@ package simplemempool
 import (
 	"time"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/common"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/internal/parts/computeids"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/internal/parts/formbatchesext"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/internal/parts/formbatchesint"
-	"github.com/filecoin-project/mir/pkg/mempool/simplemempool/internal/parts/lookuptxs"
-	"github.com/filecoin-project/mir/pkg/modules"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/indexedlist"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/common"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/internal/parts/computeids"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/internal/parts/formbatchesext"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/internal/parts/formbatchesint"
+	"github.com/matejpavlovic/mir/pkg/mempool/simplemempool/internal/parts/lookuptxs"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/indexedlist"
 )
 
 // ModuleConfig sets the module ids. All replicas are expected to use identical module configurations.

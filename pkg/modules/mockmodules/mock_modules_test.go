@@ -1,5 +1,5 @@
 package mockmodules
 
-import "github.com/filecoin-project/mir/pkg/modules"
+import "github.com/matejpavlovic/mir/pkg/modules"
 
 var _ modules.PassiveModule = &MockPassiveModule{}

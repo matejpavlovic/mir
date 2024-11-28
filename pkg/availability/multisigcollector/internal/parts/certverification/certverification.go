@@ -5,18 +5,18 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector/common"
-	msctypes "github.com/filecoin-project/mir/pkg/availability/multisigcollector/types"
-	"github.com/filecoin-project/mir/pkg/dsl"
-	apbdsl "github.com/filecoin-project/mir/pkg/pb/availabilitypb/dsl"
-	mscpbtypes "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb/types"
-	apbtypes "github.com/filecoin-project/mir/pkg/pb/availabilitypb/types"
-	cryptopbdsl "github.com/filecoin-project/mir/pkg/pb/cryptopb/dsl"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	"github.com/filecoin-project/mir/pkg/util/membutil"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector/common"
+	msctypes "github.com/matejpavlovic/mir/pkg/availability/multisigcollector/types"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	apbdsl "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/dsl"
+	mscpbtypes "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb/types"
+	apbtypes "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/types"
+	cryptopbdsl "github.com/matejpavlovic/mir/pkg/pb/cryptopb/dsl"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/membutil"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 // State represents the state related to this part of the module.

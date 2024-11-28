@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package batchfetcherpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/batchfetcherpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/batchfetcherpb";
 
 import "trantorpb/trantorpb.proto";
 

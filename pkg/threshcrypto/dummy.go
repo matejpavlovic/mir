@@ -5,7 +5,7 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // DummyCrypto represents a dummy MirModule module that

@@ -5,11 +5,11 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/mirreflect"
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/codegen/util/jenutil"
-	"github.com/filecoin-project/mir/pkg/util/reflectutil"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/mirreflect"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/codegen/util/jenutil"
+	"github.com/matejpavlovic/mir/pkg/util/reflectutil"
 )
 
 var (
@@ -17,7 +17,7 @@ var (
 	mirreflectTypeImpl      jen.Code = jenutil.QualFromType(reflectutil.TypeOf[mirreflect.TypeImpl]())
 	mirreflectGeneratedType jen.Code = jenutil.QualFromType(reflectutil.TypeOf[mirreflect.GeneratedType]())
 
-	reflectutilTypeOf jen.Code = jen.Qual("github.com/filecoin-project/mir/pkg/util/reflectutil", "TypeOf")
+	reflectutilTypeOf jen.Code = jen.Qual("github.com/matejpavlovic/mir/pkg/util/reflectutil", "TypeOf")
 )
 
 func generateMirType(g *jen.File, msg *types.Message, parser *types.Parser) error {

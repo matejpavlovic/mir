@@ -11,7 +11,7 @@ package mir
 import (
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/logging"
 )
 
 // The NodeConfig struct represents configuration parameters of the node

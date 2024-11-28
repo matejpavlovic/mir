@@ -6,12 +6,12 @@ import (
 	es "github.com/go-errors/errors"
 	"github.com/multiformats/go-multiaddr"
 
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/net"
-	"github.com/filecoin-project/mir/pkg/net/grpc"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	"github.com/filecoin-project/mir/pkg/trantor/types"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/net"
+	"github.com/matejpavlovic/mir/pkg/net/grpc"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	"github.com/matejpavlovic/mir/pkg/trantor/types"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 var _ LocalTransportLayer = &LocalGrpcTransport{}

@@ -5,7 +5,7 @@ import (
 
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ApplyEventsSequentially takes a list of events and applies the given applyEvent function to each event in the list.

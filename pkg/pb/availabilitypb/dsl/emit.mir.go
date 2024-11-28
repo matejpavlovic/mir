@@ -3,11 +3,11 @@
 package availabilitypbdsl
 
 import (
-	dsl "github.com/filecoin-project/mir/pkg/dsl"
-	events "github.com/filecoin-project/mir/pkg/pb/availabilitypb/events"
-	types "github.com/filecoin-project/mir/pkg/pb/availabilitypb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	dsl "github.com/matejpavlovic/mir/pkg/dsl"
+	events "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/events"
+	types "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Module-specific dsl functions for emitting events.

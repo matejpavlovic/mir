@@ -3,13 +3,13 @@
 package hasherpbtypes
 
 import (
-	mirreflect "github.com/filecoin-project/mir/codegen/mirreflect"
-	types "github.com/filecoin-project/mir/codegen/model/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/contextstorepb/types"
-	types2 "github.com/filecoin-project/mir/pkg/pb/dslpb/types"
-	hasherpb "github.com/filecoin-project/mir/pkg/pb/hasherpb"
-	reflectutil "github.com/filecoin-project/mir/pkg/util/reflectutil"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	mirreflect "github.com/matejpavlovic/mir/codegen/mirreflect"
+	types "github.com/matejpavlovic/mir/codegen/model/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/contextstorepb/types"
+	types2 "github.com/matejpavlovic/mir/pkg/pb/dslpb/types"
+	hasherpb "github.com/matejpavlovic/mir/pkg/pb/hasherpb"
+	reflectutil "github.com/matejpavlovic/mir/pkg/util/reflectutil"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type Event struct {

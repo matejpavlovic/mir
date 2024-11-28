@@ -11,11 +11,11 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/filecoin-project/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen"
 
-	"github.com/filecoin-project/mir/codegen/util/jenutil"
-	"github.com/filecoin-project/mir/codegen/util/protoreflectutil"
-	"github.com/filecoin-project/mir/pkg/pb/mir"
+	"github.com/matejpavlovic/mir/codegen/util/jenutil"
+	"github.com/matejpavlovic/mir/codegen/util/protoreflectutil"
+	"github.com/matejpavlovic/mir/pkg/pb/mir"
 )
 
 // Parser can be used to parse the protoc-generated types using reflection.

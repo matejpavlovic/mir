@@ -1,9 +1,9 @@
 package eventlog
 
 import (
-	"github.com/filecoin-project/mir/pkg/pb/apppb"
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/pb/apppb"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 // Returns a file that splits an record slice into multiple slices

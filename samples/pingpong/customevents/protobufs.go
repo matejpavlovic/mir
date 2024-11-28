@@ -1,9 +1,9 @@
 package customevents
 
 import (
-	"github.com/filecoin-project/mir/pkg/pb/eventpb"
-	"github.com/filecoin-project/mir/pkg/pb/pingpongpb"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/pb/eventpb"
+	"github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func Event(destModule t.ModuleID, ppEvent *pingpongpb.Event) *eventpb.Event {

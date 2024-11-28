@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package bcbpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/bcbpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/bcbpb";
 
 import "mir/codegen_extensions.proto";
 import "net/codegen_extensions.proto";
@@ -66,6 +66,6 @@ message FinalMessage {
   option (net.message) = true;
 
   bytes           data       = 1;
-  repeated string signers    = 2 [(mir.type) = "github.com/filecoin-project/mir/stdtypes.NodeID"];
+  repeated string signers    = 2 [(mir.type) = "github.com/matejpavlovic/mir/stdtypes.NodeID"];
   repeated bytes  signatures = 3;
 }

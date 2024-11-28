@@ -6,16 +6,16 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector/common"
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector/internal/parts/batchreconstruction"
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector/internal/parts/certcreation"
-	"github.com/filecoin-project/mir/pkg/availability/multisigcollector/internal/parts/certverification"
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	mscpbtypes "github.com/filecoin-project/mir/pkg/pb/availabilitypb/mscpb/types"
-	"github.com/filecoin-project/mir/stdmodules/factory"
-	t "github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector/common"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector/internal/parts/batchreconstruction"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector/internal/parts/certcreation"
+	"github.com/matejpavlovic/mir/pkg/availability/multisigcollector/internal/parts/certverification"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	mscpbtypes "github.com/matejpavlovic/mir/pkg/pb/availabilitypb/mscpb/types"
+	"github.com/matejpavlovic/mir/stdmodules/factory"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig sets the module ids. All replicas are expected to use identical module configurations.
@@ -31,7 +31,7 @@ type ModuleParams = common.ModuleParams
 func DefaultParamsTemplate() ModuleParams {
 	return ModuleParams{
 		Limit: 1, // Number of sub-certificates in one availability certificate.
-		// TODO: Increase the Limit when https://github.com/filecoin-project/mir/issues/495 is fixed.
+		// TODO: Increase the Limit when https://github.com/consensus-shipyard/mir/issues/495 is fixed.
 		MaxRequests: math.MaxInt, // By default, have the availability module run (basically) forever.
 	}
 }

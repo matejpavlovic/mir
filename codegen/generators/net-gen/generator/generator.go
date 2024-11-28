@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/filecoin-project/mir/codegen"
-	"github.com/filecoin-project/mir/codegen/model/messages"
+	"github.com/matejpavlovic/mir/codegen"
+	"github.com/matejpavlovic/mir/codegen/model/messages"
 
-	"github.com/filecoin-project/mir/codegen/model/types"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/codegen/model/types"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 type NetMsgGenerator struct{}

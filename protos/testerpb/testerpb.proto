@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package testerpb;
 
-option go_package = "github.com/filecoin-project/mir/pkg/pb/testerpb";
+option go_package = "github.com/matejpavlovic/mir/pkg/pb/testerpb";
 
 import "mir/codegen_extensions.proto";
 

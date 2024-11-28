@@ -6,7 +6,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/filecoin-project/mir/codegen/util/jenutil"
+	"github.com/matejpavlovic/mir/codegen/util/jenutil"
 )
 
 type Oneof struct {

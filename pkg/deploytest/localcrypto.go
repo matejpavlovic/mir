@@ -1,10 +1,10 @@
 package deploytest
 
 import (
-	mirCrypto "github.com/filecoin-project/mir/pkg/crypto"
-	"github.com/filecoin-project/mir/pkg/logging"
-	"github.com/filecoin-project/mir/pkg/modules"
-	t "github.com/filecoin-project/mir/stdtypes"
+	mirCrypto "github.com/matejpavlovic/mir/pkg/crypto"
+	"github.com/matejpavlovic/mir/pkg/logging"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 type LocalCryptoSystem interface {

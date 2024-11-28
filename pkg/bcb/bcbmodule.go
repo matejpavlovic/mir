@@ -3,17 +3,17 @@ package bcb
 import (
 	es "github.com/go-errors/errors"
 
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/stdtypes"
 
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/pkg/modules"
-	bcbpbdsl "github.com/filecoin-project/mir/pkg/pb/bcbpb/dsl"
-	bcbpbmsgs "github.com/filecoin-project/mir/pkg/pb/bcbpb/msgs"
-	cryptopbdsl "github.com/filecoin-project/mir/pkg/pb/cryptopb/dsl"
-	cryptopbtypes "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	transportpbdsl "github.com/filecoin-project/mir/pkg/pb/transportpb/dsl"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
-	"github.com/filecoin-project/mir/pkg/util/sliceutil"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/pkg/modules"
+	bcbpbdsl "github.com/matejpavlovic/mir/pkg/pb/bcbpb/dsl"
+	bcbpbmsgs "github.com/matejpavlovic/mir/pkg/pb/bcbpb/msgs"
+	cryptopbdsl "github.com/matejpavlovic/mir/pkg/pb/cryptopb/dsl"
+	cryptopbtypes "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	transportpbdsl "github.com/matejpavlovic/mir/pkg/pb/transportpb/dsl"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/util/sliceutil"
 )
 
 //TODO Sanitize messages received by this module (e.g. check that the sender is the expected one, make sure no crashing if data=nil, etc.)

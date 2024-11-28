@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package crypto
 
 import (
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // The Crypto interface represents an implementation of the cryptographic primitives inside the MirModule module.

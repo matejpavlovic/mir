@@ -1,10 +1,10 @@
 package iss
 
 import (
-	lsp "github.com/filecoin-project/mir/pkg/iss/leaderselectionpolicy"
-	"github.com/filecoin-project/mir/pkg/orderers/common"
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
+	lsp "github.com/matejpavlovic/mir/pkg/iss/leaderselectionpolicy"
+	"github.com/matejpavlovic/mir/pkg/orderers/common"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
 )
 
 // epochInfo holds epoch-specific information that becomes irrelevant on advancing to the next epoch.

@@ -1,7 +1,7 @@
 package dsl
 
 import (
-	dslpbtypes "github.com/filecoin-project/mir/pkg/pb/dslpb/types"
+	dslpbtypes "github.com/matejpavlovic/mir/pkg/pb/dslpb/types"
 )
 
 // MirOrigin creates a dslpb.Origin protobuf.

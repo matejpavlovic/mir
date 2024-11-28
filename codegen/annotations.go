@@ -5,8 +5,8 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/filecoin-project/mir/pkg/pb/mir"
-	"github.com/filecoin-project/mir/pkg/pb/net"
+	"github.com/matejpavlovic/mir/pkg/pb/mir"
+	"github.com/matejpavlovic/mir/pkg/pb/net"
 )
 
 // ShouldGenerateMirType returns true if the message is marked by one of the standard Mir annotations.

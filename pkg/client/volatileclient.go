@@ -1,9 +1,9 @@
 package client
 
 import (
-	"github.com/filecoin-project/mir/pkg/pb/trantorpb"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/maputil"
+	"github.com/matejpavlovic/mir/pkg/pb/trantorpb"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/maputil"
 )
 
 // VolatileClient is a simple implementation of the SMR Client interface that does not provide any persistence.

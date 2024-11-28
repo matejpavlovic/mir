@@ -3,9 +3,9 @@
 package cryptopbevents
 
 import (
-	types "github.com/filecoin-project/mir/pkg/pb/cryptopb/types"
-	types1 "github.com/filecoin-project/mir/pkg/pb/eventpb/types"
-	stdtypes "github.com/filecoin-project/mir/stdtypes"
+	types "github.com/matejpavlovic/mir/pkg/pb/cryptopb/types"
+	types1 "github.com/matejpavlovic/mir/pkg/pb/eventpb/types"
+	stdtypes "github.com/matejpavlovic/mir/stdtypes"
 )
 
 func SignRequest(destModule stdtypes.ModuleID, data *types.SignedData, origin *types.SignOrigin) *types1.Event {

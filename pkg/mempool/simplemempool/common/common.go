@@ -3,10 +3,10 @@ package common
 import (
 	"time"
 
-	trantorpbtypes "github.com/filecoin-project/mir/pkg/pb/trantorpb/types"
-	tt "github.com/filecoin-project/mir/pkg/trantor/types"
-	"github.com/filecoin-project/mir/pkg/util/indexedlist"
-	t "github.com/filecoin-project/mir/stdtypes"
+	trantorpbtypes "github.com/matejpavlovic/mir/pkg/pb/trantorpb/types"
+	tt "github.com/matejpavlovic/mir/pkg/trantor/types"
+	"github.com/matejpavlovic/mir/pkg/util/indexedlist"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // ModuleConfig sets the module ids. All replicas are expected to use identical module configurations.

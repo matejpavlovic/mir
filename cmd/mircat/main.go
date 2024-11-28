@@ -9,11 +9,11 @@ import (
 	"github.com/pkg/errors"
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	t "github.com/filecoin-project/mir/stdtypes"
+	t "github.com/matejpavlovic/mir/stdtypes"
 )
 
 // mircat is a tool for reviewing Mir state machine recordings.
-// It understands the format encoded via github.com/filecoin-project/mir/eventlog
+// It understands the format encoded via github.com/matejpavlovic/mir/eventlog
 // and is able to parse and filter these log files based on the events.
 
 // arguments represents the parameters passed to mircat.

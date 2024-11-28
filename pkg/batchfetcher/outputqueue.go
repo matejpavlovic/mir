@@ -1,8 +1,8 @@
 package batchfetcher
 
 import (
-	"github.com/filecoin-project/mir/pkg/dsl"
-	"github.com/filecoin-project/mir/stdtypes"
+	"github.com/matejpavlovic/mir/pkg/dsl"
+	"github.com/matejpavlovic/mir/stdtypes"
 )
 
 type outputItem struct {
