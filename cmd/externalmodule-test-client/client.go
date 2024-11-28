@@ -14,12 +14,12 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
 	defer cancel()
 
-	beroConn, err := externalmodule.Connect(ctx, "ws://localhost:8080/bero")
+	conn1, err := externalmodule.Connect(ctx, "ws://localhost:8080/conn1")
 	if err != nil {
 		panic(err)
 	}
 
-	response, err := beroConn.Submit(ctx, stdtypes.ListOf(
+	response, err := conn1.Submit(ctx, stdtypes.ListOf(
 		stdevents.NewTestString("remote", "Ping"),
 		stdevents.NewRaw("remote", []byte{0, 1, 2, 3}),
 	))
@@ -27,13 +27,13 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("Bero received %d events in response.\n", response.Len())
+	fmt.Printf("Conn1 received %d events in response.\n", response.Len())
 
-	cecoConn, err := externalmodule.Connect(ctx, "ws://localhost:8080/ceco")
+	conn2, err := externalmodule.Connect(ctx, "ws://localhost:8080/conn2")
 	if err != nil {
 		panic(err)
 	}
-	response, err = cecoConn.Submit(ctx, stdtypes.ListOf(
+	response, err = conn2.Submit(ctx, stdtypes.ListOf(
 		stdevents.NewTestString("remote", "Ping"),
 		stdevents.NewRaw("remote", []byte{0, 1, 2, 3}),
 	))
@@ -41,13 +41,13 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("Ceco received %d events in response.\n", response.Len())
+	fmt.Printf("Conn2 received %d events in response.\n", response.Len())
 
-	err = beroConn.Close(ctx)
+	err = conn1.Close(ctx)
 	if err != nil {
 		panic(err)
 	}
-	err = cecoConn.Close(ctx)
+	err = conn2.Close(ctx)
 	if err != nil {
 		panic(err)
 	}

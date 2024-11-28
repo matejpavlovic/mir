@@ -22,8 +22,8 @@ func (e EmptyModule) ApplyEvents(events *stdtypes.EventList) (*stdtypes.EventLis
 
 func main() {
 	s := externalmodule.NewServer(
-		externalmodule.NewHandler("bero", EmptyModule{"bero"}),
-		externalmodule.NewHandler("ceco", EmptyModule{"ceco"}),
+		externalmodule.NewHandler("conn1", EmptyModule{"conn1"}),
+		externalmodule.NewHandler("conn2", EmptyModule{"conn2"}),
 	)
 
 	time.AfterFunc(10*time.Second, func() {
