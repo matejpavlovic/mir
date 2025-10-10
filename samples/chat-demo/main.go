@@ -101,6 +101,8 @@ func run() error {
 		logger = logging.ConsoleWarnLogger // Only print errors and warnings by default.
 	}
 
+	logger = logging.Decorate(logger, fmt.Sprintf("%s: ", args.OwnID))
+
 	fmt.Println("Initializing...")
 
 	// ================================================================================
@@ -139,7 +141,13 @@ func run() error {
 	trantorParams.Iss.LeaderSelectionPolicy = lsp.Simple
 
 	// Initialize the libp2p transport subsystem.
-	transport, err := grpc.NewTransport(trantorParams.Net, args.OwnID, listenAddr.String(), logger, nil)
+	transport, err := grpc.NewTransport(
+		trantorParams.Net,
+		args.OwnID,
+		listenAddr.String(),
+		logging.Decorate(logger, "TR: "),
+		nil,
+	)
 	if err != nil {
 		return errors.Wrap(err, "failed to create grpc transport")
 	}
@@ -204,7 +212,7 @@ func run() error {
 	// Initialize recording of events
 	interceptor, err := eventlog.NewRecorder(
 		args.OwnID,
-		fmt.Sprintf("node%d", ownIDInt),
+		fmt.Sprintf("chat-demo-node-%d", ownIDInt),
 		logging.Decorate(logging.ConsoleTraceLogger, "Interceptor: "),
 		eventlog.FileSplitterOpt(eventlog.EventNewEpochLogger(trantor.DefaultModuleConfig().BatchFetcher)),
 	)

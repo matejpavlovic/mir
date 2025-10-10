@@ -1,9 +1,9 @@
-NODE_0_LOG="./node_0.log"
-NODE_1_LOG="./node_1.log"
-NODE_2_LOG="./node_2.log"
-NODE_3_LOG="./node_3.log"
+NODE_0_LOG="./chat-demo-node_0.log"
+NODE_1_LOG="./chat-demo-node_1.log"
+NODE_2_LOG="./chat-demo-node_2.log"
+NODE_3_LOG="./chat-demo-node_3.log"
 
-rm -rf ./node_*.log
+rm -rf ./chat-demo-node_*.log
 
 function quoted {
   SPACE=""
