@@ -135,7 +135,9 @@ func (tr *Transport) ApplyEvents(
 				}
 			}
 		case *eventpb.Event:
-			return tr.ApplyPbEvent(ctx, evt)
+			if err := tr.ApplyPbEvent(ctx, evt); err != nil {
+				return err
+			}
 		default:
 			return es.Errorf("GRPC transport only supports proto events and OutgoingMessage, received %T", event)
 		}
