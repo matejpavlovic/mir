@@ -320,9 +320,10 @@ func (sc *StableCheckpoint) SyntacticCheck(
 		return es.Errorf("certificate is nil")
 	}
 
-	if sc.StateSnapshot().AppData == nil {
-		return es.Errorf("app data is nil")
-	}
+	// Not checking for nil data, because of a serialization issue. See comment in the Serialize() implementation above.
+	//if sc.StateSnapshot().AppData == nil {
+	//	return es.Errorf("app data is nil")
+	//}
 
 	if sc.StateSnapshot().EpochData.ClientProgress == nil {
 		return es.Errorf("client progress is nil")
