@@ -28,5 +28,6 @@ func (*Event) ReflectTypeOptions() []reflect.Type {
 		reflect.TypeOf((*Event_TestingString)(nil)),
 		reflect.TypeOf((*Event_TestingUint)(nil)),
 		reflect.TypeOf((*Event_Tester)(nil)),
+		reflect.TypeOf((*Event_Simulation)(nil)),
 	}
 }
