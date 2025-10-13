@@ -1,17 +1,16 @@
 package priorityqueue
 
 import (
-	"container/heap"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
 
 type fruit struct {
-	priority int
+	priority int64
 	name     string
 }
 
-func (s *fruit) Priority() int {
+func (s *fruit) Priority() int64 {
 	return s.priority
 }
 
@@ -20,37 +19,21 @@ func (s *fruit) Hash() []byte {
 }
 
 func TestPriorityQueue(t *testing.T) {
-	// Some items and their priorities.
-	items := map[string]int{
-		"banana": 3, "apple": 2, "pear": 4,
-	}
+	pq := New[*fruit]()
 
-	// Create a priority queue, put the items in it, and
-	// establish the priority queue (heap) invariants.
-	pq := make(PriorityQueue[*fruit], len(items))
-	i := 0
-	for value, priority := range items {
-		pq[i] = &Item[*fruit]{
-			&fruit{
-				priority: priority,
-				name:     value,
-			},
-			i,
-		}
-		i++
-	}
-	heap.Init(&pq)
+	pq.Push(&fruit{priority: 3, name: "banana"})
+	pq.Push(&fruit{priority: 2, name: "apple"})
+	pq.Push(&fruit{priority: 4, name: "pear"})
+	pq.Push(&fruit{priority: 0, name: "orange"})
+	pq.Push(&fruit{priority: 8, name: "cherry"})
+	pq.Push(&fruit{priority: 8, name: "grape"})
+	pq.Push(&fruit{priority: 8, name: "apple"})
 
-	heap.Push(&pq, &fruit{priority: 1, name: "orange"})
-	heap.Push(&pq, &fruit{priority: 8, name: "cherry"})
-	heap.Push(&pq, &fruit{priority: 8, name: "grape"})
-	heap.Push(&pq, &fruit{priority: 8, name: "apple"})
-
-	require.Equal(t, "orange", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "apple", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "banana", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "pear", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "apple", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "cherry", heap.Pop(&pq).(*fruit).name)
-	require.Equal(t, "grape", heap.Pop(&pq).(*fruit).name)
+	require.Equal(t, "orange", pq.Pop().name)
+	require.Equal(t, "apple", pq.Pop().name)
+	require.Equal(t, "banana", pq.Pop().name)
+	require.Equal(t, "pear", pq.Pop().name)
+	require.Equal(t, "apple", pq.Pop().name)
+	require.Equal(t, "cherry", pq.Pop().name)
+	require.Equal(t, "grape", pq.Pop().name)
 }
