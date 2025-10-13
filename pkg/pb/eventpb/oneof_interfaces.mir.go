@@ -17,7 +17,6 @@ import (
 	ordererpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb"
 	pprepvalidatorpb "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb"
 	pingpongpb "github.com/matejpavlovic/mir/pkg/pb/pingpongpb"
-	simulationpb "github.com/matejpavlovic/mir/pkg/pb/simulationpb"
 	testerpb "github.com/matejpavlovic/mir/pkg/pb/testerpb"
 	threshcryptopb "github.com/matejpavlovic/mir/pkg/pb/threshcryptopb"
 	transportpb "github.com/matejpavlovic/mir/pkg/pb/transportpb"
@@ -109,8 +108,4 @@ func (w *Event_TestingUint) Unwrap() *wrapperspb.UInt64Value {
 
 func (w *Event_Tester) Unwrap() *testerpb.Tester {
 	return w.Tester
-}
-
-func (w *Event_Simulation) Unwrap() *simulationpb.Event {
-	return w.Simulation
 }

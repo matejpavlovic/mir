@@ -19,7 +19,6 @@ import (
 	types14 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/pprepvalidatorpb/types"
 	types9 "github.com/matejpavlovic/mir/pkg/pb/ordererpb/types"
 	types15 "github.com/matejpavlovic/mir/pkg/pb/pingpongpb/types"
-	types17 "github.com/matejpavlovic/mir/pkg/pb/simulationpb/types"
 	types16 "github.com/matejpavlovic/mir/pkg/pb/testerpb/types"
 	types6 "github.com/matejpavlovic/mir/pkg/pb/threshcryptopb/types"
 	types12 "github.com/matejpavlovic/mir/pkg/pb/transportpb/types"
@@ -89,8 +88,6 @@ func Event_TypeFromPb(pb eventpb.Event_Type) Event_Type {
 		return &Event_TestingUint{TestingUint: pb.TestingUint}
 	case *eventpb.Event_Tester:
 		return &Event_Tester{Tester: types16.TesterFromPb(pb.Tester)}
-	case *eventpb.Event_Simulation:
-		return &Event_Simulation{Simulation: types17.EventFromPb(pb.Simulation)}
 	}
 	return nil
 }
@@ -573,30 +570,6 @@ func (w *Event_Tester) Pb() eventpb.Event_Type {
 
 func (*Event_Tester) MirReflect() mirreflect.Type {
 	return mirreflect.TypeImpl{PbType_: reflectutil.TypeOf[*eventpb.Event_Tester]()}
-}
-
-type Event_Simulation struct {
-	Simulation *types17.Event
-}
-
-func (*Event_Simulation) isEvent_Type() {}
-
-func (w *Event_Simulation) Unwrap() *types17.Event {
-	return w.Simulation
-}
-
-func (w *Event_Simulation) Pb() eventpb.Event_Type {
-	if w == nil {
-		return nil
-	}
-	if w.Simulation == nil {
-		return &eventpb.Event_Simulation{}
-	}
-	return &eventpb.Event_Simulation{Simulation: (w.Simulation).Pb()}
-}
-
-func (*Event_Simulation) MirReflect() mirreflect.Type {
-	return mirreflect.TypeImpl{PbType_: reflectutil.TypeOf[*eventpb.Event_Simulation]()}
 }
 
 func EventFromPb(pb *eventpb.Event) *Event {
