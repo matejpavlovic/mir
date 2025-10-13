@@ -9,16 +9,16 @@ package mir
 import (
 	"context"
 	"fmt"
-	"reflect"
 	"sync"
 
 	es "github.com/go-errors/errors"
 
+	simevt "github.com/matejpavlovic/mir/cmd/spice-sim/events"
 	"github.com/matejpavlovic/mir/pkg/eventlog"
 	"github.com/matejpavlovic/mir/pkg/logging"
 	"github.com/matejpavlovic/mir/pkg/modules"
 	"github.com/matejpavlovic/mir/pkg/util/maputil"
-	"github.com/matejpavlovic/mir/stdevents"
+	"github.com/matejpavlovic/mir/pkg/util/priorityqueue"
 	"github.com/matejpavlovic/mir/stdtypes"
 )
 
@@ -89,6 +89,10 @@ type Node struct {
 	// Access to the event buffers is also guarded by this lock,
 	// since they need to be accessed when generating statistics.
 	statsLock sync.Mutex
+
+	// Priority queue that holds unprocessed events sorted by timestamp
+	// (the logical time at which the event is to be applied).
+	eventQueue *priorityqueue.PriorityQueue[simevt.SimEvent]
 }
 
 // NewNode creates a new node with ID id.
@@ -140,6 +144,8 @@ func NewNode(
 		stopwatches:   stopwatches,
 
 		stopped: make(chan struct{}),
+
+		eventQueue: priorityqueue.New[simevt.SimEvent](),
 	}, nil
 }
 
@@ -191,9 +197,8 @@ func (n *Node) Run(ctx context.Context) error {
 	defer close(n.stopped)
 
 	// Submit the Init event to the modules.
-	if err := n.pendingEvents.Add(createInitEvents(n.modules)); err != nil {
-		n.workErrNotifier.Fail(err)
-		return es.Errorf("failed to add init event: %w", err)
+	for moduleID := range n.modules {
+		n.eventQueue.Push(simevt.NewInitEvent("", moduleID, 0))
 	}
 
 	// Start processing of events.
@@ -214,131 +219,28 @@ func (n *Node) Stop() {
 // Performs all internal work of the node,
 // which mostly consists of routing events between the node's modules.
 // Stops and returns when ctx is canceled.
-func (n *Node) process(ctx context.Context) error { //nolint:gocyclo
+func (n *Node) process(_ context.Context) error { //nolint:gocyclo
 	n.Config.Logger.Log(logging.LevelInfo, "node process started")
 	defer n.Config.Logger.Log(logging.LevelInfo, "node process finished")
 
-	var wg sync.WaitGroup // Synchronizes all the worker functions
+	for n.eventQueue.Len() > 0 {
+		event := n.eventQueue.Pop().(simevt.SimEvent)
 
-	// Wait for all worker threads (started by n.StartModules()) to finish when processing is done.
-	// Watch out! If process() terminates unexpectedly (e.g. by panicking), this might get stuck!
-	defer wg.Wait()
-
-	// Make sure that the event importing goroutines do not get stuck if input is paused due to full buffers.
-	// This defer statement must go after waiting for the worker goroutines to finish (wg.Wait() above).
-	// so it is executed before wg.Wait() (since defers are stacked). Otherwise, we get into a deadlock.
-	defer n.resumeInput()
-
-	// Periodically log statistics about dispatched events and the state of the event buffers.
-	if n.Config.Stats.Period > 0 {
-		wg.Add(1)
-		go n.monitorStats(n.Config.Stats.Period, &wg)
-	}
-
-	// Start processing module events.
-	n.startModules(ctx, &wg)
-
-	// This loop shovels events between the appropriate channels, until a stopping condition is satisfied.
-	var returnErr error
-	for returnErr == nil {
-
-		// Initialize slices of select cases and the corresponding reactions to each case being selected.
-		selectCases := make([]reflect.SelectCase, 0)
-		selectReactions := make([]func(receivedVal reflect.Value), 0)
-
-		// If the context has been canceled, set the corresponding stopping value at the Node's WorkErrorNotifier,
-		// making the processing stop when the WorkErrorNotifier's channel is selected the next time.
-		selectCases = append(selectCases, reflect.SelectCase{
-			Dir:  reflect.SelectRecv,
-			Chan: reflect.ValueOf(ctx.Done()),
-		})
-		selectReactions = append(selectReactions, func(_ reflect.Value) {
-			// TODO: Use a different error here to distinguish this case from calling Node.Stop()
-			n.workErrNotifier.Fail(ErrStopped)
-		})
-
-		// Add events produced by modules and debugger to the eventBuffer buffers and handle logical time.
-
-		selectCases = append(selectCases, reflect.SelectCase{
-			Dir:  reflect.SelectRecv,
-			Chan: reflect.ValueOf(n.eventsIn),
-		})
-		selectReactions = append(selectReactions, func(newEventsVal reflect.Value) {
-			n.statsLock.Lock()
-			defer n.statsLock.Unlock()
-
-			newEvents := newEventsVal.Interface().(*stdtypes.EventList)
-			if err := n.pendingEvents.Add(newEvents); err != nil {
-				n.workErrNotifier.Fail(err)
+		switch module := n.modules[event.Dest()].(type) {
+		case modules.PassiveModule:
+			newEvents, err := module.ApplyEvents(stdtypes.ListOf(event))
+			if err != nil {
+				return es.Errorf("failed to apply event %s: %w", event.ToString(), err)
 			}
+			iter := newEvents.Iterator()
 
-			// Keep track of the size of the input buffer.
-			// When it exceeds the PauseInputThreshold, pause the input from active modules.
-			if n.pendingEvents.totalEvents > n.Config.PauseInputThreshold {
-				n.pauseInput()
-			}
-		})
-
-		// If an error occurred, stop processing.
-
-		selectCases = append(selectCases, reflect.SelectCase{
-			Dir:  reflect.SelectRecv,
-			Chan: reflect.ValueOf(n.workErrNotifier.ExitC()),
-		})
-		selectReactions = append(selectReactions, func(_ reflect.Value) {
-			returnErr = n.workErrNotifier.Err()
-		})
-
-		// For each generic event buffer in eventBuffer that contains events to be submitted to its corresponding module,
-		// create a selectCase for writing those events to the module's work channel.
-		n.statsLock.Lock()
-		for moduleID, buffer := range n.pendingEvents.buffers {
-			if buffer.Len() > 0 {
-
-				eventBatch := buffer.Head(n.Config.MaxEventBatchSize)
-				numEvents := eventBatch.Len()
-
-				// Create case for writing in the work channel.
-				selectCases = append(selectCases, reflect.SelectCase{
-					Dir:  reflect.SelectSend,
-					Chan: reflect.ValueOf(n.workChans[moduleID]),
-					Send: reflect.ValueOf(eventBatch),
-				})
-
-				// Create a copy of moduleID to use in the reaction function.
-				// If we used moduleID directly in the function definition, it would correspond to the loop variable
-				// and have the same value for all cases after the loop finishes iterating.
-				var mID = moduleID
-
-				// React to writing to a work channel by emptying the corresponding event buffer
-				// (i.e., removing events just written to the channel from the buffer).
-				selectReactions = append(selectReactions, func(_ reflect.Value) {
-					n.statsLock.Lock()
-					defer n.statsLock.Unlock()
-
-					n.pendingEvents.buffers[mID].RemoveFront(numEvents)
-
-					// Keep track of the size of the event buffer.
-					// Whenever it drops below the ResumeInputThreshold, resume input.
-					n.pendingEvents.totalEvents -= numEvents
-					if n.pendingEvents.totalEvents <= n.Config.ResumeInputThreshold {
-						n.resumeInput()
-					}
-
-					n.dispatchStats.AddDispatch(mID, numEvents)
-				})
+			// For each incoming event
+			for e := iter.Next(); e != nil; e = iter.Next() {
+				n.eventQueue.Push(e.(simevt.SimEvent))
 			}
 		}
-		n.statsLock.Unlock()
-
-		// Choose one case from above and execute the corresponding reaction.
-
-		chosenCase, receivedValue, _ := reflect.Select(selectCases)
-		selectReactions[chosenCase](receivedValue)
 	}
-
-	n.workErrNotifier.SetExitStatus(nil, nil) // TODO: change this when statuses are implemented.
-	return returnErr
+	return nil
 }
 
 func (n *Node) startModules(ctx context.Context, wg *sync.WaitGroup) {
@@ -503,12 +405,4 @@ func (n *Node) inputIsPaused() bool {
 	n.inputPausedCond.L.Lock()
 	defer n.inputPausedCond.L.Unlock()
 	return n.inputPaused
-}
-
-func createInitEvents(m modules.Modules) *stdtypes.EventList {
-	initEvents := stdtypes.EmptyList()
-	for moduleID := range m {
-		initEvents.PushBack(stdevents.NewInit(moduleID))
-	}
-	return initEvents
 }
