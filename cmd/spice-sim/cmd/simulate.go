@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/matejpavlovic/mir"
-	"github.com/matejpavlovic/mir/cmd/spice-sim/noderoles"
+	"github.com/matejpavlovic/mir/cmd/spice-sim/spice"
 	"github.com/matejpavlovic/mir/pkg/modules"
 	"github.com/matejpavlovic/mir/stdtypes"
 	"github.com/spf13/cobra"
@@ -27,12 +27,32 @@ func init() {
 func runSimulation() error {
 	fmt.Println("Running simulation...")
 
-	mirNode, err := mir.NewNode("0", mir.DefaultNodeConfig(), map[stdtypes.ModuleID]modules.Module{
-		"block-producer-0": noderoles.NewBlockProducer("block-producer-0"),
-	}, nil)
+	config := spice.DefaultConfig()
+	coreState := spice.NewCoreState(config)
+
+	spiceModules := map[stdtypes.ModuleID]modules.Module{}
+
+	// Create block producers.
+	for _, blockProducerID := range coreState.BlockProducerIDs() {
+		spiceModules[blockProducerID] = spice.NewBlockProducer(blockProducerID, coreState)
+	}
+
+	// Create chunk producers.
+	for shard := int64(0); shard < int64(config.NumShards); shard++ {
+		for _, chunkProducerID := range coreState.ChunkProducerIDs(shard) {
+			spiceModules[chunkProducerID] = spice.NewChunkProducer(chunkProducerID, shard, coreState)
+		}
+	}
+
+	// Create data owners.
+	for _, dataOwnerID := range coreState.DataOwnerIDs() {
+		spiceModules[dataOwnerID] = spice.NewDataOwner(dataOwnerID, coreState)
+	}
+
+	mirNode, err := mir.NewNode("0", mir.DefaultNodeConfig(), spiceModules, nil)
 	if err != nil {
 		return err
 	}
 
-	return mirNode.Run(context.Background())
+	return mirNode.RunFor(context.Background(), 10000)
 }

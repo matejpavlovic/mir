@@ -9,24 +9,24 @@ import (
 	"github.com/matejpavlovic/mir/stdtypes"
 )
 
-type NewBlockEvent struct {
+type ChunkPartEvent struct {
 	SimEventImpl
-	Block *types.Block
+	PartID types.ChunkPartID
 }
 
-func NewNewBlockEvent(
+func NewChunkPartEvent(
 	srcModule stdtypes.ModuleID,
 	destModule stdtypes.ModuleID,
 	timestamp int64,
-	block *types.Block,
-) *NewBlockEvent {
-	return &NewBlockEvent{
+	partID types.ChunkPartID,
+) *ChunkPartEvent {
+	return &ChunkPartEvent{
 		SimEventImpl: *NewSimEvent(srcModule, destModule, timestamp),
-		Block:        block,
+		PartID:       partID,
 	}
 }
 
-func (e *NewBlockEvent) ToBytes() ([]byte, error) {
+func (e *ChunkPartEvent) ToBytes() ([]byte, error) {
 	encMode, err := cbor.CoreDetEncOptions().EncMode()
 	if err != nil {
 		return nil, err
@@ -38,7 +38,7 @@ func (e *NewBlockEvent) ToBytes() ([]byte, error) {
 	return data, nil
 }
 
-func (e *NewBlockEvent) ToString() string {
+func (e *ChunkPartEvent) ToString() string {
 	data, err := json.Marshal(e)
 	if err != nil {
 		return fmt.Sprintf("unmarshalableEvent(%+v)", e)
@@ -46,7 +46,7 @@ func (e *NewBlockEvent) ToString() string {
 	return string(data)
 }
 
-func (e *NewBlockEvent) Hash() []byte {
+func (e *ChunkPartEvent) Hash() []byte {
 	data, err := e.ToBytes()
 	if err != nil {
 		panic(err)

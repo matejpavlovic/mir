@@ -1,28 +1,21 @@
-package noderoles
+package spice
 
 import (
-	"fmt"
 	"github.com/matejpavlovic/mir/cmd/spice-sim/events"
 	"github.com/matejpavlovic/mir/pkg/dsl"
 	"github.com/matejpavlovic/mir/pkg/modules"
 	"github.com/matejpavlovic/mir/stdtypes"
 )
 
-func NewBlockProducer(id stdtypes.ModuleID) modules.Module {
+func NewReplica(id stdtypes.ModuleID, shard int64, coreState CoreState) modules.Module {
 	bp := dsl.NewModule(id)
 
 	dsl.UponEvent(bp, func(ev *events.InitEvent) error {
-		if id.String() == "block-producer-0" {
-			dsl.EmitEvent(bp, events.NewNewBlockEvent(id, id, 0, 0))
-		}
 		return nil
 	})
 
 	dsl.UponEvent(bp, func(ev *events.NewBlockEvent) error {
-		fmt.Println(ev.ToString())
-		if ev.Timestamp() < 1000 {
-			dsl.EmitEvent(bp, events.NewNewBlockEvent(id, id, ev.Timestamp()+100, ev.Height+1))
-		}
+		// TODO: Continue here.
 		return nil
 	})
 

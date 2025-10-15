@@ -167,7 +167,7 @@ func (n *Node) Debug(ctx context.Context, eventsOut chan *stdtypes.EventList) er
 	n.debugOut = eventsOut
 
 	// Start processing of events.
-	return n.process(ctx)
+	return n.process(ctx, 0)
 
 }
 
@@ -202,7 +202,21 @@ func (n *Node) Run(ctx context.Context) error {
 	}
 
 	// Start processing of events.
-	return n.process(ctx)
+	return n.process(ctx, 0)
+}
+
+func (n *Node) RunFor(ctx context.Context, limit int64) error {
+
+	// When done, indicate to the Stop method that it can return.
+	defer close(n.stopped)
+
+	// Submit the Init event to the modules.
+	for moduleID := range n.modules {
+		n.eventQueue.Push(simevt.NewInitEvent("", moduleID, 0))
+	}
+
+	// Start processing of events.
+	return n.process(ctx, limit)
 }
 
 // Stop stops the Node and returns only after the node has stopped, i.e., after a call to Run or Debug returns.
@@ -219,12 +233,16 @@ func (n *Node) Stop() {
 // Performs all internal work of the node,
 // which mostly consists of routing events between the node's modules.
 // Stops and returns when ctx is canceled.
-func (n *Node) process(_ context.Context) error { //nolint:gocyclo
+func (n *Node) process(_ context.Context, limit int64) error { //nolint:gocyclo
 	n.Config.Logger.Log(logging.LevelInfo, "node process started")
 	defer n.Config.Logger.Log(logging.LevelInfo, "node process finished")
 
 	for n.eventQueue.Len() > 0 {
 		event := n.eventQueue.Pop().(simevt.SimEvent)
+
+		if limit > 0 && event.Timestamp() > limit {
+			break
+		}
 
 		switch module := n.modules[event.Dest()].(type) {
 		case modules.PassiveModule:
