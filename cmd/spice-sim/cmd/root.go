@@ -1,7 +1,9 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -19,7 +21,9 @@ var (
 )
 
 func Execute() {
+	start := time.Now()
 	err := rootCmd.Execute()
+	fmt.Printf("Time elapsed: %v\n", time.Since(start))
 	if err != nil {
 		os.Exit(1)
 	}
