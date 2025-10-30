@@ -2,6 +2,7 @@ package spice
 
 import (
 	"fmt"
+
 	"github.com/matejpavlovic/mir/cmd/spice-sim/events"
 	"github.com/matejpavlovic/mir/cmd/spice-sim/types"
 	"github.com/matejpavlovic/mir/pkg/dsl"
@@ -10,7 +11,7 @@ import (
 )
 
 func NewChunkProducer(id stdtypes.ModuleID, shard int64, coreState CoreState) modules.Module {
-	bp := dsl.NewModule(id)
+	thisChunkProducer := dsl.NewModule(id)
 
 	disperseChunk := func(timestamp int64, chunk types.Chunk) {
 		for i, dataOwnerID := range coreState.DataOwnersAt(chunk.Id.BlockID.Height, chunk.Id.Shard) {
@@ -18,36 +19,28 @@ func NewChunkProducer(id stdtypes.ModuleID, shard int64, coreState CoreState) mo
 				ChunkID: chunk.Id,
 				Index:   int64(i),
 			})
-			dsl.EmitEvent(bp, dataPart)
+			dsl.EmitEvent(thisChunkProducer, dataPart)
 		}
 	}
 
-	dsl.UponEvent(bp, func(ev *events.InitEvent) error {
-		fmt.Printf("Initializing chunk producer: %v\n", id)
-		if coreState.ChunkProducerAt(0, shard) == id {
-			newChunk := types.NewChunk(types.ChunkID{
-				BlockID: types.NewBlockID(0, nil),
-				Shard:   shard,
-			})
-			fmt.Printf("(%v) %v: Producing new chunk: %s\n", ev.Timestamp(), id, newChunk.Id)
-			disperseChunk(ev.Timestamp()+int64(coreState.config.ChunkDispersalDelay), newChunk)
-		}
+	dsl.UponEvent(thisChunkProducer, func(ev *events.InitEvent) error {
 		return nil
 	})
 
-	dsl.UponEvent(bp, func(ev *events.NewBlockEvent) error {
-		nextHeight := ev.Block.Id.Height
-		if coreState.ChunkProducerAt(nextHeight, shard) == id {
+	dsl.UponEvent(thisChunkProducer, func(ev *events.NewBlockEvent) error {
+		coreState.ApplyBlock(ev.Block)
+
+		if coreState.ChunkProducerAt(ev.Block.Height, shard) == id {
 			newChunk := types.NewChunk(types.ChunkID{
-				BlockID: types.NewBlockID(nextHeight, ev.Block.Hash()),
+				BlockID: ev.Block.Id(),
 				Shard:   shard,
 			})
 
 			fmt.Printf("(%v) %v: Producing new chunk: %s\n", ev.Timestamp(), id, newChunk.Id)
-			disperseChunk(ev.Timestamp()+int64(coreState.config.ChunkDispersalDelay), newChunk)
+			disperseChunk(ev.Timestamp()+coreState.config.ChunkDispersalDelay, newChunk)
 		}
 		return nil
 	})
 
-	return bp
+	return thisChunkProducer
 }

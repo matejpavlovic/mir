@@ -10,22 +10,22 @@ import (
 )
 
 func NewDataOwner(id stdtypes.ModuleID, coreState CoreState) modules.Module {
-	bp := dsl.NewModule(id)
+	thisDataOwner := dsl.NewModule(id)
 
 	storedParts := map[string]map[int64]struct{}{}
 
 	submitStatementChunkPartStored := func(timestamp int64, partID types.ChunkPartID) {
 		for _, blockProducerID := range coreState.BlockProducerIDs() {
 			statement := events.NewChunkPartStoredEvent(id, blockProducerID, timestamp, partID)
-			dsl.EmitEvent(bp, statement)
+			dsl.EmitEvent(thisDataOwner, statement)
 		}
 	}
 
-	dsl.UponEvent(bp, func(ev *events.InitEvent) error {
+	dsl.UponEvent(thisDataOwner, func(ev *events.InitEvent) error {
 		return nil
 	})
 
-	dsl.UponEvent(bp, func(ev *events.ChunkPartEvent) error {
+	dsl.UponEvent(thisDataOwner, func(ev *events.ChunkPartEvent) error {
 		// Save received chunk part.
 		chunkKey := ev.PartID.String()
 		chunkParts, ok := storedParts[chunkKey]
@@ -38,12 +38,12 @@ func NewDataOwner(id stdtypes.ModuleID, coreState CoreState) modules.Module {
 		// Confirm storing of chunk to block producers
 		fmt.Printf("(%v) %v Chunk part stored: %s\n", ev.Timestamp(), id, ev.PartID)
 		submitStatementChunkPartStored(
-			ev.Timestamp()+int64(coreState.config.StatementSubmissionDelay),
+			ev.Timestamp()+coreState.config.StatementSubmissionDelay,
 			ev.PartID,
 		)
 
 		return nil
 	})
 
-	return bp
+	return thisDataOwner
 }

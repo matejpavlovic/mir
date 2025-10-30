@@ -3,6 +3,7 @@ package cmd
 import (
 	"context"
 	"fmt"
+
 	"github.com/matejpavlovic/mir"
 	"github.com/matejpavlovic/mir/cmd/spice-sim/spice"
 	"github.com/matejpavlovic/mir/pkg/modules"
@@ -47,6 +48,18 @@ func runSimulation() error {
 	// Create data owners.
 	for _, dataOwnerID := range coreState.DataOwnerIDs() {
 		spiceModules[dataOwnerID] = spice.NewDataOwner(dataOwnerID, coreState)
+	}
+
+	// Create replicas
+	for shard := int64(0); shard < int64(config.NumShards); shard++ {
+		for _, replicaID := range coreState.ReplicaIDs(shard) {
+			spiceModules[replicaID] = spice.NewReplica(replicaID, shard, coreState)
+		}
+	}
+
+	// Create Validators
+	for _, validatorID := range coreState.ValidatorIDs() {
+		spiceModules[validatorID] = spice.NewValidator(validatorID, coreState)
 	}
 
 	mirNode, err := mir.NewNode("0", mir.DefaultNodeConfig(), spiceModules, nil)
